@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تور بیداری | از دکور معنوی تا میدان واقعی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070f; --ink:#e9eefb; --muted:#93a1bf; --line:rgba(255,255,255,.09);
+  --cyan:#5eead4; --violet:#a78bfa; --gold:#f5c26b; --rose:#fb7185; --r:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:'Vazirmatn',system-ui,'Segoe UI',Tahoma,sans-serif;
+  background:var(--bg); color:var(--ink); line-height:2; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+ul,ol{padding-inline-start:1.2em}
+b{color:#fff;font-weight:800}
+::selection{background:rgba(94,234,212,.3);color:#fff}
+
+/* پس‌زمینه */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;
+  background:
+    radial-gradient(1200px 700px at 82% -10%, #17224a 0%, transparent 62%),
+    radial-gradient(900px 620px at 8% 8%, #241a44 0%, transparent 58%),
+    radial-gradient(1000px 800px at 50% 112%, #062a33 0%, transparent 62%), #05070f;
+}
+.bg::after{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(circle at 50% 30%, #000 15%, transparent 72%);
+  mask-image:radial-gradient(circle at 50% 30%, #000 15%, transparent 72%); opacity:.55;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.32;animation:float 20s ease-in-out infinite}
+.b1{width:420px;height:420px;background:#3b2a86;top:-120px;right:-80px}
+.b2{width:380px;height:380px;background:#0f6a72;bottom:10%;left:-120px;animation-delay:-7s}
+.b3{width:300px;height:300px;background:#6d3a8f;top:45%;right:40%;animation-delay:-12s;opacity:.22}
+@keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(30px,-40px,0) scale(1.12)}}
+
+/* نوار پیشرفت */
+.progress{position:fixed;top:0;right:0;height:3px;width:0;z-index:80;
+  background:linear-gradient(90deg,var(--cyan),var(--violet) 60%,var(--gold));
+  box-shadow:0 0 14px rgba(94,234,212,.6);transition:width .12s linear;}
+
+/* ناوبری کناری */
+.rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:60;
+  display:flex;flex-direction:column;gap:16px;}
+.rail button{width:11px;height:11px;border-radius:50%;padding:0;cursor:pointer;
+  border:1px solid rgba(255,255,255,.28);background:transparent;position:relative;transition:.35s;}
+.rail button.active{background:var(--cyan);border-color:var(--cyan);
+  box-shadow:0 0 14px var(--cyan);transform:scale(1.3);}
+.rail button span{position:absolute;left:24px;top:50%;transform:translateY(-50%) translateX(-8px);
+  white-space:nowrap;font-size:.72rem;font-weight:600;background:rgba(10,15,28,.94);
+  border:1px solid var(--line);padding:5px 12px;border-radius:9px;color:var(--ink);
+  opacity:0;pointer-events:none;transition:.3s;}
+.rail button:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:860px){.rail{display:none}}
+
+.wrap{width:min(1080px, calc(100% - 40px));margin-inline:auto}
+.sec{padding:clamp(56px,9vw,110px) 0;position:relative;scroll-margin-top:20px}
+
+/* انیمیشن ورود */
+[data-reveal]{opacity:0;transform:translateY(38px);
+  transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);
+  transition-delay:var(--d,0s);}
+[data-reveal].in{opacity:1;transform:none}
+
+/* هیرو */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;
+  padding:110px 0 70px;position:relative;}
+.hero-orb{position:relative;width:170px;height:170px;margin:0 auto 34px}
+.orb-core{position:absolute;inset:36%;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%, #ffffff, var(--cyan) 42%, #2b6cb0 100%);
+  box-shadow:0 0 70px rgba(94,234,212,.55), 0 0 140px rgba(167,139,250,.35);
+  animation:breathe 5.5s ease-in-out infinite;}
+.orb-ring{position:absolute;border-radius:50%;border:1px solid rgba(167,139,250,.35)}
+.r1{inset:6%;animation:spin 20s linear infinite}
+.r2{inset:-10%;border-style:dashed;border-color:rgba(94,234,212,.28);animation:spin 30s linear infinite reverse}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.82rem;
+  letter-spacing:.06em;color:var(--muted);border:1px solid var(--line);
+  border-radius:99px;padding:8px 18px;background:rgba(255,255,255,.03);}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+h1{font-size:clamp(2.6rem,8.5vw,5rem);line-height:1.15;font-weight:800;
+  letter-spacing:-.02em;margin:.32em 0 .18em;}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--violet) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.lead{max-width:640px;margin:0 auto;color:var(--muted);
+  font-size:clamp(.98rem,2.1vw,1.12rem);line-height:2.1;}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+
+.btn{font-family:inherit;font-size:.98rem;font-weight:700;cursor:pointer;
+  padding:14px 32px;border-radius:999px;border:1px solid transparent;
+  transition:transform .3s,box-shadow .3s,background .3s;}
+.btn.primary{background:linear-gradient(90deg,var(--cyan),var(--violet));
+  color:#04121a;box-shadow:0 12px 34px -12px rgba(94,234,212,.85);}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px -14px rgba(167,139,250,.9)}
+.btn.ghost{background:rgba(255,255,255,.045);border-color:var(--line);color:var(--ink);}
+.btn.ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+.btn:disabled{opacity:.55;cursor:default;transform:none!important}
+
+.scroll-hint{margin-top:60px;display:flex;flex-direction:column;align-items:center;gap:12px;
+  color:var(--muted);font-size:.8rem;letter-spacing:.05em;}
+.scroll-hint span{display:block;width:22px;height:36px;border:1.6px solid rgba(255,255,255,.25);
+  border-radius:12px;position:relative;}
+.scroll-hint span::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);
+  width:4px;height:7px;border-radius:3px;background:var(--cyan);animation:wheel 1.8s ease-in-out infinite;}
+@keyframes wheel{0%,100%{top:7px;opacity:1}60%{top:20px;opacity:0}}
+
+/* کارت‌ها */
+.card{position:relative;overflow:hidden;
+  background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+  border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,4vw,38px);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
+.card::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(620px 220px at 100% 0%, rgba(94,234,212,.11), transparent 70%);}
+.card + .card{margin-top:26px}
+.card-title{font-size:clamp(1.12rem,2.6vw,1.42rem);font-weight:800;
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.card-title .dot{width:10px;height:10px;border-radius:50%;flex:none;
+  background:var(--cyan);box-shadow:0 0 14px var(--cyan);}
+.card p{color:var(--muted)}
+.card p b{color:#fff}
+
+/* سربرگ اپیزود */
+.ep-head{text-align:center;margin-bottom:clamp(34px,6vw,60px);position:relative}
+.ep-badge{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;
+  padding:7px 18px;border-radius:99px;border:1px solid rgba(94,234,212,.35);
+  color:var(--cyan);background:rgba(94,234,212,.08);margin-bottom:18px;}
+.ep-head h2{font-size:clamp(1.7rem,5vw,3rem);font-weight:800;line-height:1.35;letter-spacing:-.01em;}
+.ep-sub{color:var(--muted);margin-top:10px;font-size:clamp(.9rem,2.2vw,1.05rem)}
+.ep-ghost{position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  font-size:clamp(6rem,18vw,12rem);font-weight:800;line-height:1;
+  color:rgba(255,255,255,.022);pointer-events:none;user-select:none;z-index:-1;}
+
+/* صحنه دوگانه */
+.scene-wrap{position:relative;width:100%;aspect-ratio:5/3;border-radius:18px;
+  overflow:hidden;border:1px solid var(--line);background:#080c17;margin-bottom:8px;}
+.scene{position:absolute;inset:0;transition:opacity .45s ease}
+.scene svg{width:100%;height:100%;display:block}
+.scene-decor{opacity:1;z-index:2}
+.scene-real{opacity:0;z-index:1}
+.scene-wrap.show-real .scene-decor{opacity:0}
+.scene-wrap.show-real .scene-real{opacity:1}
+.scene-cap{margin-top:18px;font-size:.94rem;color:var(--muted);min-height:3.6em;transition:color .3s;}
+.scene-cap b{color:var(--cyan)}
+.smoke{animation:smokeRise 5s ease-in-out infinite}
+@keyframes smokeRise{0%{opacity:.1}50%{opacity:.55}100%{opacity:.1}}
+
+/* اسلایدر */
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
+  border-radius:99px;margin:20px 0 6px;background:rgba(255,255,255,.13);outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,#ffffff,var(--cyan));
+  box-shadow:0 0 0 5px rgba(94,234,212,.16), 0 6px 18px rgba(0,0,0,.55);cursor:pointer;}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,#ffffff,var(--cyan));
+  box-shadow:0 0 0 5px rgba(94,234,212,.16);cursor:pointer;}
+.range-labels{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted)}
+
+/* استرس */
+.gauge{height:16px;border-radius:99px;background:rgba(255,255,255,.08);
+  overflow:hidden;margin-top:22px;border:1px solid var(--line);}
+.gauge-fill{height:100%;width:15%;border-radius:99px;
+  background:hsl(136 85% 55%);transition:width .25s ease, background .25s ease;
+  box-shadow:0 0 20px currentColor;}
+.state-name{font-weight:800;font-size:1.1rem;margin-top:20px;color:#fff}
+.state-desc{color:var(--muted);margin-top:8px;font-size:.94rem;min-height:4.2em}
+.will-row{display:flex;align-items:center;gap:14px;margin-top:20px}
+.will-bar{flex:1;height:10px;border-radius:99px;background:rgba(255,255,255,.08);
+  overflow:hidden;border:1px solid var(--line);}
+.will-bar span{display:block;height:100%;width:85%;
+  background:linear-gradient(90deg,var(--violet),var(--cyan));
+  transition:width .25s ease;border-radius:99px;}
+.will-row small{font-size:.82rem;color:var(--muted);white-space:nowrap}
+
+/* اقیانوس */
+.ocean-visual{position:relative;height:350px;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#123c52 0%, #0c2439 32%, #061020 70%, #03060f 100%);}
+.waves{position:absolute;top:0;left:0;width:200%;height:88px;animation:waveMove 9s linear infinite;}
+.waves path{fill:rgba(94,234,212,.16)}
+.waves.w2{top:16px;animation-duration:13s;animation-direction:reverse;opacity:.7}
+.waves.w2 path{fill:rgba(167,139,250,.14)}
+@keyframes waveMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ocean-marker{position:absolute;right:50%;top:12%;width:18px;height:18px;border-radius:50%;
+  transform:translateX(50%);background:#fff;
+  box-shadow:0 0 0 6px rgba(94,234,212,.18), 0 0 30px var(--cyan);
+  transition:top .12s linear, box-shadow .3s, background .3s;z-index:3;}
+.ocean-depth-label{position:absolute;bottom:14px;right:50%;transform:translateX(50%);
+  font-size:.8rem;font-weight:700;color:rgba(255,255,255,.85);
+  background:rgba(0,0,0,.35);padding:5px 16px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.14);white-space:nowrap;}
+.ocean-cap{margin-top:16px;font-size:.94rem;color:var(--muted);min-height:3.4em}
+
+/* تمرین */
+.practice{margin-top:26px;border-radius:var(--r);padding:clamp(20px,4vw,32px);
+  border:1px dashed rgba(245,194,107,.4);
+  background:linear-gradient(180deg, rgba(245,194,107,.075), rgba(245,194,107,.02));position:relative;}
+.practice-head{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.06em;
+  color:var(--gold);border:1px solid rgba(245,194,107,.4);
+  background:rgba(245,194,107,.1);border-radius:99px;padding:5px 16px;margin-bottom:16px;}
+.practice h4{font-size:1.06rem;font-weight:800;margin-bottom:12px;color:#fff}
+.practice li{color:var(--muted);margin-bottom:10px;font-size:.95rem}
+.practice li b{color:var(--gold)}
+
+/* ترمز دستی */
+.brake-box{display:flex;flex-direction:column;align-items:center;gap:22px;margin-top:26px}
+.ring-wrap{position:relative;width:150px;height:150px}
+.ring{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:rgba(255,255,255,.09);stroke-width:7}
+.ring-fg{fill:none;stroke:var(--cyan);stroke-width:7;stroke-linecap:round;
+  stroke-dasharray:326.7;stroke-dashoffset:0;
+  filter:drop-shadow(0 0 8px rgba(94,234,212,.8));
+  transition:stroke-dashoffset .9s linear;}
+.ring-num{position:absolute;inset:0;display:grid;place-items:center;
+  font-size:2.1rem;font-weight:800;color:#fff;}
+.brake-result{max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .7s cubic-bezier(.22,1,.36,1), opacity .6s, margin .6s;width:100%;}
+.brake-result.show{max-height:340px;opacity:1;margin-top:6px}
+.brake-q{background:rgba(94,234,212,.08);border:1px solid rgba(94,234,212,.28);
+  border-radius:18px;padding:22px 24px;text-align:center;
+  font-size:clamp(1rem,2.6vw,1.18rem);font-weight:700;color:#fff;line-height:2;}
+.brake-q small{display:block;color:var(--muted);font-weight:400;font-size:.85rem;margin-top:10px}
+
+/* دونات */
+.donut-wrap{display:flex;gap:clamp(20px,5vw,54px);align-items:center;flex-wrap:wrap;justify-content:center}
+.donut{width:min(300px,72vw);height:auto;overflow:visible}
+.donut .seg{fill:none;stroke-width:34;stroke-linecap:butt;
+  transform-box:fill-box;transform-origin:center;transform:rotate(-90deg);
+  stroke-dasharray:0 502.65;
+  transition:stroke-dasharray 1.5s cubic-bezier(.22,1,.36,1), opacity .35s, stroke-width .35s;
+  pointer-events:stroke;cursor:pointer;}
+.donut.in .seg{stroke-dasharray:var(--dash)}
+.seg-a{stroke:var(--gold);transition-delay:.15s}
+.seg-b{stroke:var(--cyan);transition-delay:.4s}
+.seg-c{stroke:var(--violet);transition-delay:.65s}
+.donut .seg.dim{opacity:.28}
+.donut .seg.hot{stroke-width:40}
+.donut-num{fill:#fff;font-size:2.1rem;font-weight:800;text-anchor:middle;
+  font-family:'Vazirmatn',sans-serif;transition:.3s;}
+.donut-label{fill:var(--muted);font-size:.78rem;text-anchor:middle;font-family:'Vazirmatn',sans-serif;}
+.legend{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;min-width:220px}
+.legend li{display:flex;align-items:center;gap:12px;cursor:pointer;
+  padding:11px 16px;border-radius:14px;border:1px solid transparent;transition:.3s;font-size:.92rem;}
+.legend li:hover,.legend li.hot{background:rgba(255,255,255,.05);border-color:var(--line)}
+.legend .sw{width:13px;height:13px;border-radius:4px;flex:none}
+.legend .pct{margin-inline-start:auto;font-weight:800;color:#fff}
+.sw-a{background:var(--gold)}
+.sw-b{background:var(--cyan)}
+.sw-c{background:var(--violet)}
+
+/* مدار رباتیک */
+.loop-box{display:flex;flex-direction:column;align-items:center;gap:20px;margin-top:22px}
+.loop-svg{width:min(240px,62vw);height:auto}
+.loop-track{fill:none;stroke:rgba(255,255,255,.1);stroke-width:5}
+.loop-pulse{fill:none;stroke:var(--rose);stroke-width:6;stroke-linecap:round;
+  stroke-dasharray:70 340;transform-box:fill-box;transform-origin:center;
+  animation:spin 3.4s linear infinite;
+  filter:drop-shadow(0 0 8px rgba(251,113,133,.8));transition:opacity .5s;}
+.loop-node{fill:#0b1020;stroke:rgba(255,255,255,.2);stroke-width:1.5}
+.loop-box.broken .loop-pulse{animation-play-state:paused;opacity:.12}
+.loop-box.broken .loop-track{stroke:rgba(94,234,212,.4)}
+.loop-box.broken .loop-svg{opacity:.55;transition:.5s}
+.loop-note{font-size:.85rem;color:var(--muted);text-align:center}
+.practice-reveal{max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .8s cubic-bezier(.22,1,.36,1), opacity .6s, margin .6s;}
+.practice-reveal.show{max-height:620px;opacity:1;margin-top:22px}
+
+/* مه */
+.fog-scene{position:relative;height:330px;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);background:linear-gradient(180deg,#0a1220,#050810);
+  --light:0;}
+.fog-scene svg{position:absolute;inset:0;width:100%;height:100%}
+.fog-layers{position:absolute;inset:-25%;pointer-events:none;
+  opacity:calc(1 - var(--light) * .88);transition:opacity .25s linear;}
+.fog-layer{position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 28% 48%, rgba(190,208,235,.20), transparent 52%),
+    radial-gradient(circle at 72% 36%, rgba(170,195,230,.16), transparent 50%),
+    radial-gradient(circle at 52% 72%, rgba(200,215,240,.13), transparent 55%);
+  filter:blur(26px);}
+.f1{animation:drift 16s ease-in-out infinite alternate}
+.f2{animation:drift 22s ease-in-out infinite alternate-reverse;opacity:.8}
+@keyframes drift{from{transform:translateX(-4%) translateY(0)}to{transform:translateX(4%) translateY(-3%)}}
+.light-cone{position:absolute;left:50%;bottom:0;width:280px;height:100%;
+  transform:translateX(-50%);
+  background:conic-gradient(from 180deg at 50% 100%,
+    transparent 0deg, rgba(245,194,107,.30) 25deg, transparent 50deg);
+  opacity:calc(var(--light) * 1);transition:opacity .25s linear;
+  pointer-events:none;mix-blend-mode:screen;filter:blur(4px);}
+.fog-cap{margin-top:16px;font-size:.94rem;color:var(--muted);min-height:3.6em}
+.fog-cap b{color:var(--gold)}
+
+/* نسبت ۹۹/۱ */
+.ratio{display:flex;height:78px;border-radius:16px;overflow:hidden;
+  border:1px solid var(--line);margin-top:24px;direction:rtl;}
+.ratio-known{flex:0 0 11%;min-width:74px;background:linear-gradient(180deg,#1a3f52,#0d2233);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  position:relative;box-shadow:inset -1px 0 0 rgba(255,255,255,.12);}
+.ratio-known span{font-weight:800;color:var(--cyan);font-size:1.05rem}
+.ratio-known small{font-size:.62rem;color:var(--muted);line-height:1.4;text-align:center}
+.ratio-unknown{flex:1;position:relative;overflow:hidden;
+  background:repeating-linear-gradient(115deg, rgba(255,255,255,.03) 0 12px, transparent 12px 26px),
+    linear-gradient(180deg,#0d1120,#070a13);
+  display:flex;align-items:center;justify-content:center;transition:background .8s;}
+.ratio-unknown > span{font-weight:800;color:rgba(255,255,255,.4);font-size:1.05rem;transition:.6s}
+.ratio.revealed .ratio-unknown{
+  background:radial-gradient(circle at 30% 50%, rgba(167,139,250,.28), transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(94,234,212,.22), transparent 60%),
+    linear-gradient(180deg,#131a33,#0a0e1c);}
+.ratio.revealed .ratio-unknown > span{color:var(--violet);opacity:0}
+.hidden-labels{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  gap:10px;opacity:0;transition:opacity .8s .2s;flex-wrap:wrap;padding:0 12px;}
+.ratio.revealed .hidden-labels{opacity:1}
+.hidden-labels i{font-style:normal;font-size:.8rem;font-weight:700;color:#fff;
+  background:rgba(167,139,250,.22);border:1px solid rgba(167,139,250,.45);
+  padding:5px 14px;border-radius:99px;animation:popIn .6s backwards;}
+.ratio.revealed .hidden-labels i:nth-child(2){animation-delay:.15s}
+.ratio.revealed .hidden-labels i:nth-child(3){animation-delay:.3s}
+@keyframes popIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+/* فیل */
+.elephant{display:flex;flex-direction:column;align-items:center;gap:20px;margin-top:22px}
+.ele-svg{width:min(420px,92%);height:auto}
+.ele-part{fill:#141c30;stroke:rgba(255,255,255,.14);stroke-width:1.6;transition:.4s;cursor:pointer;}
+.ele-part:hover{fill:#1d2942}
+.ele-part.active{fill:rgba(94,234,212,.35);stroke:var(--cyan);stroke-width:2.4;
+  filter:drop-shadow(0 0 14px rgba(94,234,212,.7));}
+.ele-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.chip{font-family:inherit;font-size:.86rem;font-weight:700;cursor:pointer;
+  padding:9px 20px;border-radius:99px;color:var(--ink);
+  background:rgba(255,255,255,.045);border:1px solid var(--line);transition:.3s;}
+.chip:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.chip.active{background:rgba(94,234,212,.15);border-color:var(--cyan);color:var(--cyan);
+  box-shadow:0 0 20px -6px var(--cyan);}
+.ele-text{color:var(--muted);font-size:.96rem;text-align:center;min-height:3.4em;
+  max-width:560px;transition:.3s;}
+
+/* جمع‌بندی */
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:34px}
+.key{padding:26px 24px;border-radius:20px;border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+  transition:.4s;position:relative;overflow:hidden;}
+.key:hover{transform:translateY(-6px);border-color:rgba(94,234,212,.35);
+  box-shadow:0 22px 50px -30px var(--cyan);}
+.key .knum{font-size:2.1rem;font-weight:800;line-height:1;
+  background:linear-gradient(180deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:12px;display:block;}
+.key h4{font-size:1rem;font-weight:800;margin-bottom:8px;color:#fff}
+.key p{font-size:.9rem;color:var(--muted)}
+
+.check-list{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.check-item{display:flex;align-items:center;gap:14px;cursor:pointer;
+  padding:16px 20px;border-radius:16px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);transition:.35s;font-size:.95rem;}
+.check-item:hover{background:rgba(255,255,255,.06)}
+.check-item input{display:none}
+.check-item .box{width:24px;height:24px;border-radius:8px;flex:none;
+  border:2px solid rgba(255,255,255,.22);position:relative;transition:.35s;}
+.check-item input:checked ~ .box{background:linear-gradient(135deg,var(--cyan),var(--violet));
+  border-color:transparent;box-shadow:0 0 18px -4px var(--cyan);}
+.check-item input:checked ~ .box::after{content:'';position:absolute;left:7px;top:3px;
+  width:6px;height:11px;border:solid #04121a;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+.check-item input:checked ~ .txt{color:var(--muted);text-decoration:line-through;
+  text-decoration-color:rgba(94,234,212,.5);}
+.check-progress{font-size:.86rem;color:var(--muted);margin-top:18px;text-align:center}
+.check-progress b{color:var(--cyan)}
+
+.quote{text-align:center;padding:clamp(30px,6vw,60px) 20px;
+  font-size:clamp(1.05rem,3vw,1.5rem);font-weight:700;line-height:2.1;
+  color:#fff;position:relative;}
+.quote::before,.quote::after{content:'';display:block;width:64px;height:2px;margin:0 auto;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);}
+.quote::before{margin-bottom:28px}
+.quote::after{margin-top:28px}
+.quote small{display:block;font-size:.82rem;color:var(--muted);font-weight:400;margin-top:14px}
+
+footer{text-align:center;padding:50px 20px 70px;color:var(--muted);font-size:.82rem;
+  border-top:1px solid var(--line);margin-top:40px;}
+
+@media(max-width:640px){
+  .hero-orb{width:130px;height:130px}
+  .ratio-known{flex:0 0 22%}
+  .ocean-visual{height:290px}
+  .fog-scene{height:260px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;
+    transition-duration:.001s!important;}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<div class="progress" id="progress"></div>
+
+<nav class="rail" id="rail" aria-label="ناوبری تور">
+  <button data-scroll="#hero" class="active" aria-label="شروع"><span>شروع</span></button>
+  <button data-scroll="#ep1" aria-label="اپیزود ۱"><span>اپیزود ۱ · بیداری</span></button>
+  <button data-scroll="#ep2" aria-label="اپیزود ۲"><span>اپیزود ۲ · اتوماتیک</span></button>
+  <button data-scroll="#ep3" aria-label="اپیزود ۳"><span>اپیزود ۳ · مه</span></button>
+  <button data-scroll="#final" aria-label="جمع‌بندی"><span>جمع‌بندی</span></button>
+</nav>
+
+<main>
+
+<!-- ================= هیرو ================= -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-orb">
+      <div class="orb-ring r1"></div>
+      <div class="orb-ring r2"></div>
+      <div class="orb-core"></div>
+    </div>
+    <p class="eyebrow">تور علمی–عرفانی · ۳ اپیزود</p>
+    <h1>بیداری<br><span class="grad">یعنی چی؟</span></h1>
+    <p class="lead">
+      یک سفر تصویری از «دکور معنوی» تا «میدان واقعی»؛ از زندگی روی حالت اتوماتیک
+      تا رانندگی با چراغ درون در جنگل مه‌آلود. اسکرول کن، بازی کن، ببین.
+    </p>
+    <div class="hero-cta">
+      <button class="btn primary" data-scroll="#ep1">شروع تور</button>
+      <button class="btn ghost" data-scroll="#intro">چه چیزی یاد می‌گیرم؟</button>
+    </div>
+    <div class="scroll-hint"><span></span>اسکرول کن</div>
+  </div>
+</section>
+
+<!-- ================= مقدمه ================= -->
+<section class="sec" id="intro">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <h2>این تور چه چیزی به تو می‌دهد؟</h2>
+      <p class="ep-sub">سه اپیزود، سه شکاف در تصویرِ فانتزیِ معنویت</p>
+    </div>
+
+    <div class="keys">
+      <div class="key" data-reveal style="--d:.05s">
+        <span class="knum">۰۱</span>
+        <h4>از دکور تا میدان</h4>
+        <p>بیداری، عود و موسیقی ملایم و فرار به غار نیست. میدان واقعی‌اش ترافیک و محل کار و چالش مالی است.</p>
+      </div>
+      <div class="key" data-reveal style="--d:.15s">
+        <span class="knum">۰۲</span>
+        <h4>۹۵٪ روی اتوماتیک</h4>
+        <p>فقط ۵ درصد از تصمیم‌های تو خودآگاه است. باقی، تکرار بی‌اختیار کدهای دیروز است.</p>
+      </div>
+      <div class="key" data-reveal style="--d:.25s">
+        <span class="knum">۰۳</span>
+        <h4>۹۹٪ در مه</h4>
+        <p>حواس پنج‌گانه فقط ۱ درصد واقعیت را می‌بینند. سالک بیدار، مه را می‌شناسد و چراغ درون را روشن می‌کند.</p>
+      </div>
+    </div>
+
+    <div class="card" data-reveal style="--d:.1s;margin-top:34px">
+      <h3 class="card-title"><span class="dot"></span>چطور این تور را طی کنم؟</h3>
+      <p>
+        هر بخش را که دیدی، روی عناصر تعاملی‌اش <b>کلیک کن و بکش</b>. اسلایدرها را تکان بده، دکمه‌ها را بزن و
+        تمرین‌های عملی هر اپیزود را همان روز انجام بده. این تور برای «فهمیدن» ساخته شده، نه برای «رد کردن».
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= اپیزود ۱ ================= -->
+<section class="sec" id="ep1">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-ghost">۰۱</div>
+      <div class="ep-badge">اپیزود ۰۱</div>
+      <h2>بیداری یعنی چی؟</h2>
+      <p class="ep-sub">تفاوت دکور معنوی با بیداری واقعی</p>
+    </div>
+
+    <!-- صحنه دوگانه -->
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>تله «دکور معنوی»</h3>
+      <p>
+        تصور رایج این است که بیداری یعنی روشن کردن عود، پخش موزیک ملایم و فرار از دنیا به غار و کوهستان.
+        اسلایدر را بکش و ببین این تصویر فانتزی، کجا به میدان واقعی تبدیل می‌شود.
+      </p>
+
+      <div class="scene-wrap" id="sceneWrap" style="margin-top:24px">
+        <div class="scene scene-decor">
+          <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="dSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1a1440"/><stop offset="1" stop-color="#3a1f52"/>
+              </linearGradient>
+              <radialGradient id="dMoon">
+                <stop offset="0" stop-color="#ffe9b0"/><stop offset="1" stop-color="#ffb86b" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#dSky)"/>
+            <circle cx="322" cy="52" r="42" fill="url(#dMoon)" opacity=".85"/>
+            <circle cx="322" cy="52" r="15" fill="#ffe9b0"/>
+            <circle cx="60" cy="34" r="1.6" fill="#fff" opacity=".9"/>
+            <circle cx="120" cy="62" r="1.2" fill="#fff" opacity=".7"/>
+            <circle cx="200" cy="28" r="1.5" fill="#fff" opacity=".8"/>
+            <circle cx="256" cy="74" r="1.1" fill="#fff" opacity=".6"/>
+            <circle cx="95" cy="96" r="1.2" fill="#fff" opacity=".55"/>
+            <path d="M0 196 L84 108 L164 196 Z" fill="#241a4a"/>
+            <path d="M110 196 L196 92 L288 196 Z" fill="#2c2054"/>
+            <path d="M244 196 L332 122 L400 196 Z" fill="#241a4a"/>
+            <rect y="190" width="400" height="50" fill="#120d28"/>
+            <ellipse cx="200" cy="198" rx="36" ry="9" fill="#0b0820" opacity=".65"/>
+            <path d="M200 152 c-17 0 -28 13 -30 28 l60 0 c-2 -15 -13 -28 -30 -28z" fill="#0f0a24"/>
+            <circle cx="200" cy="134" r="12.5" fill="#0f0a24"/>
+            <rect x="288" y="176" width="3" height="20" rx="1.5" fill="#8b6b3a"/>
+            <circle cx="289.5" cy="176" r="2.2" fill="#ff8a5b"/>
+            <path class="smoke" d="M289 174 C282 160 298 152 290 138 C282 124 298 116 292 102"
+                  fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="scene scene-real">
+          <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="rSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0b1226"/><stop offset="1" stop-color="#16233f"/>
+              </linearGradient>
+              <linearGradient id="rRoad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#111827"/><stop offset="1" stop-color="#0a0f19"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#rSky)"/>
+            <rect x="18" y="80" width="52" height="120" fill="#131b2e"/>
+            <rect x="80" y="52" width="46" height="148" fill="#101728"/>
+            <rect x="290" y="66" width="54" height="134" fill="#131b2e"/>
+            <rect x="352" y="96" width="34" height="104" fill="#101728"/>
+            <g fill="#f5c26b" opacity=".55">
+              <rect x="28" y="92" width="9" height="9"/><rect x="46" y="92" width="9" height="9"/>
+              <rect x="28" y="112" width="9" height="9"/><rect x="46" y="132" width="9" height="9"/>
+              <rect x="90" y="66" width="8" height="8"/><rect x="106" y="66" width="8" height="8"/>
+              <rect x="90" y="88" width="8" height="8"/><rect x="106" y="110" width="8" height="8"/>
+              <rect x="300" y="80" width="9" height="9"/><rect x="320" y="80" width="9" height="9"/>
+              <rect x="300" y="102" width="9" height="9"/><rect x="320" y="126" width="9" height="9"/>
+              <rect x="360" y="110" width="8" height="8"/><rect x="360" y="134" width="8" height="8"/>
+            </g>
+            <rect y="180" width="400" height="60" fill="url(#rRoad)"/>
+            <g fill="rgba(255,255,255,.22)">
+              <rect x="0" y="208" width="34" height="3" rx="1.5"/>
+              <rect x="60" y="208" width="34" height="3" rx="1.5"/>
+              <rect x="120" y="208" width="34" height="3" rx="1.5"/>
+              <rect x="180" y="208" width="34" height="3" rx="1.5"/>
+              <rect x="240" y="208" width="34" height="3" rx="1.5"/>
+              <rect x="300" y="208" width="34" height="3" rx="1.5"/>
+              <rect x="360" y="208" width="34" height="3" rx="1.5"/>
+            </g>
+            <g>
+              <rect x="42" y="186" width="66" height="22" rx="7" fill="#1f2a44"/>
+              <rect x="54" y="177" width="40" height="16" rx="6" fill="#26334f"/>
+              <circle cx="58" cy="210" r="6" fill="#0a0f19" stroke="#2b3852" stroke-width="1.5"/>
+              <circle cx="94" cy="210" r="6" fill="#0a0f19" stroke="#2b3852" stroke-width="1.5"/>
+              <ellipse cx="40" cy="196" rx="10" ry="5" fill="#ffd88a" opacity=".55"/>
+            </g>
+            <rect x="352" y="140" width="7" height="42" fill="#1a2233"/>
+            <rect x="345" y="126" width="21" height="20" rx="5" fill="#141c2b" stroke="#2b3852" stroke-width="1.2"/>
+            <circle cx="355.5" cy="132" r="3.4" fill="#fb7185" opacity=".9"/>
+            <circle cx="355.5" cy="140" r="3.4" fill="#f5c26b" opacity=".35"/>
+            <circle cx="200" cy="150" r="30" fill="rgba(94,234,212,.13)">
+              <animate attributeName="r" values="26;36;26" dur="3.6s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".35;.05;.35" dur="3.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="200" cy="150" r="9" fill="#5eead4" opacity=".9"/>
+            <path d="M200 162 c-9 0 -14 8 -15 18 l30 0 c-1 -10 -6 -18 -15 -18z" fill="#5eead4" opacity=".8"/>
+          </svg>
+        </div>
+      </div>
+
+      <input type="range" id="sceneRange" min="0" max="100" value="0" aria-label="جابه‌جایی بین دکور معنوی و میدان واقعی">
+      <div class="range-labels"><span>دکور معنوی</span><span>میدان واقعی</span></div>
+      <p class="scene-cap" id="sceneCap"></p>
+    </div>
+
+    <!-- استرس -->
+    <div class="card" data-reveal style="--d:.08s">
+      <h3 class="card-title"><span class="dot"></span>بعد علمی: قفل شدن در مدار بقا</h3>
+      <p>
+        سیستم عصبی زیر فشار استرس روزمره، روی تنظیمات بقا قفل می‌شود. اسلایدر را بکش و ببین
+        <b>اراده آگاهانه</b> چطور آب می‌رود.
+      </p>
+
+      <input type="range" id="stressRange" min="0" max="100" value="15" aria-label="سطح استرس">
+      <div class="range-labels"><span>آرامش</span><span>فشار حداکثری</span></div>
+
+      <div class="gauge"><div class="gauge-fill" id="gaugeFill"></div></div>
+
+      <div class="state-name" id="stateName"></div>
+      <p class="state-desc" id="stateDesc"></p>
+
+      <div class="will-row">
+        <div class="will-bar"><span id="willFill"></span></div>
+        <small>اراده آگاهانه: <b id="willPct"></b></small>
+      </div>
+    </div>
+
+    <!-- اقیانوس -->
+    <div class="card" data-reveal style="--d:.1s">
+      <h3 class="card-title"><span class="dot"></span>تمثیل اقیانوس</h3>
+      <p>
+        انسان بیدار همه اسباب عقلی و قانونی را در سطح پرطوفان به کار می‌گیرد، اما قلبش در
+        <b>نقطه صفر</b> به عمق آرام اقیانوس وصل است. نشانگر را در عمق حرکت بده.
+      </p>
+
+      <div class="ocean-visual" style="margin-top:24px">
+        <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,60 C120,20 240,100 360,60 C480,20 600,100 720,60 C840,20 960,100 1080,60 C1200,20 1320,100 1440,60 L1440,120 L0,120 Z"/>
+        </svg>
+        <svg class="waves w2" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,60 C120,20 240,100 360,60 C480,20 600,100 720,60 C840,20 960,100 1080,60 C1200,20 1320,100 1440,60 L1440,120 L0,120 Z"/>
+        </svg>
+        <div class="ocean-marker" id="oceanMarker"></div>
+        <div class="ocean-depth-label" id="oceanDepthLabel">سطح</div>
+      </div>
+
+      <input type="range" id="oceanRange" min="0" max="100" value="0" aria-label="عمق اقیانوس">
+      <div class="range-labels"><span>سطح پرطوفان</span><span>نقطه صفر · عمق آرام</span></div>
+      <p class="ocean-cap" id="oceanCap"></p>
+    </div>
+
+    <!-- ترمز دستی -->
+    <div class="card" data-reveal style="--d:.1s">
+      <h3 class="card-title"><span class="dot"></span>تمرین: ترمز دستی ذهن</h3>
+      <p>
+        دکمه را بزن. پنج ثانیه مکث و تنفس؛ بعد پرسش بیدارکننده ظاهر می‌شود.
+        این تمرین را امروز دقیقاً در همان لحظه‌ای انجام بده که خونت به جوش آمده.
+      </p>
+
+      <div class="brake-box">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-fg" id="brakeFg" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="ring-num" id="brakeNum">۵</div>
+        </div>
+
+        <button class="btn primary" id="brakeBtn">ترمز دستی ذهن را بکش</button>
+
+        <div class="brake-result" id="brakeResult">
+          <div class="brake-q">
+            «در این لحظه چه چیزی در من فرمان می‌دهد؛
+            نفس و ذهنِ شرطی‌شده یا روح؟»
+            <small>مچ خودت را بگیر، نفس بکش، و فقط تماشا کن. جواب را پیدا نکن؛ فقط سؤال را زنده نگه دار.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="practice">
+        <div class="practice-head">تمرین عملی · قدم امروز</div>
+        <h4>توقف در صحنه جرم</h4>
+        <ol>
+          <li>امروز دقیقاً در لحظه‌ای که <b>وسط ترافیک، محیط کار یا خانه</b> خونتان به جوش آمد و کلافه شدید، ترمز دستی ذهن را بکشید و متوقف شوید.</li>
+          <li>با <b>۵ ثانیه مکث و تنفس</b>، مچ خودتان را بگیرید و از خودتان بپرسید: «در این لحظه چه چیزی در من فرمان می‌دهد؛ نفس و ذهنِ شرطی‌شده یا روح؟»</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= اپیزود ۲ ================= -->
+<section class="sec" id="ep2">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-ghost">۰۲</div>
+      <div class="ep-badge">اپیزود ۰۲</div>
+      <h2>تو بیدار نیستی، فقط چشمات بازه!</h2>
+      <p class="ep-sub">زندگی روی «حالت اتوماتیک»</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>اتاق فرمان پنهان</h3>
+      <p>
+        ساختار سیستم ذهنی تو سه لایه دارد. روی هر بخش دونات کلیک کن یا نشانگر را روی راهنما ببر
+        تا ببینی هر لایه چه سهمی از روزمرگی‌ات را می‌سازد.
+      </p>
+
+      <div class="donut-wrap" data-reveal style="--d:.1s;margin-top:30px">
+        <svg class="donut" id="donut" viewBox="0 0 220 220" role="img" aria-label="نمودار ۵، ۱۵ و ۸۰ درصدی ساختار ذهن">
+          <circle class="seg seg-a" data-key="a" cx="110" cy="110" r="80"
+                  style="--dash:25.13 477.52; stroke-dashoffset:0"></circle>
+          <circle class="seg seg-b" data-key="b" cx="110" cy="110" r="80"
+                  style="--dash:75.40 427.25; stroke-dashoffset:-25.13"></circle>
+          <circle class="seg seg-c" data-key="c" cx="110" cy="110" r="80"
+                  style="--dash:402.12 100.53; stroke-dashoffset:-100.53"></circle>
+          <text class="donut-num" id="donutNum" x="110" y="106">۹۵٪</text>
+          <text class="donut-label" id="donutLabel" x="110" y="134">اتوماتیک</text>
+        </svg>
+
+        <ul class="legend" id="legend">
+          <li data-key="a"><span class="sw sw-a"></span><span>خودآگاه — تحلیل‌گر</span><span class="pct">۵٪</span></li>
+          <li data-key="b"><span class="sw sw-b"></span><span>نیمه‌خودآگاه — بایگانی</span><span class="pct">۱۵٪</span></li>
+          <li data-key="c"><span class="sw sw-c"></span><span>ناخودآگاه — کدگذاری‌شده</span><span class="pct">۸۰٪</span></li>
+        </ul>
+      </div>
+
+      <p style="margin-top:24px">
+        یعنی <b>۹۵ درصد روزمرگی ما</b> تکرار بی‌اختیار عادت‌ها و کدهای دیروز است.
+        دویدن‌های بی‌وقفه برای بقا، انباشت، رقابت، اسکرول‌های بی‌هدف و مصرف‌گرایی،
+        زندگی واقعی نیستند؛ چرخیدن به دور «تن» و بردگی مدرن هستند.
+      </p>
+    </div>
+
+    <!-- مدار رباتیک -->
+    <div class="card" data-reveal style="--d:.08s">
+      <h3 class="card-title"><span class="dot"></span>بعد عرفانی: بیداریِ بدتر از خواب</h3>
+      <p>
+        از نگاه مولانا، بیداری ظاهریِ انسان غافل از خواب شبانه‌اش بدتر است؛
+        زیرا تا وقتی جان انسان به حق بیدار نباشد، این بیداری ظاهری مانند زندان و غل و زنجیر عمل می‌کند.
+      </p>
+
+      <div class="loop-box" id="loopBox">
+        <svg class="loop-svg" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="loop-track" cx="100" cy="100" r="70"></circle>
+          <circle class="loop-pulse" cx="100" cy="100" r="70"></circle>
+          <circle class="loop-node" cx="100" cy="30" r="9"></circle>
+          <circle class="loop-node" cx="161" cy="135" r="9"></circle>
+          <circle class="loop-node" cx="39" cy="135" r="9"></circle>
+          <text x="100" y="105" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="12" font-family="Vazirmatn, sans-serif">مدار اتوماتیک</text>
+        </svg>
+        <p class="loop-note" id="loopNote">زنگ ساعت ← گوشی ← اسکرول ← کار ← گوشی ← خواب … و فردا دوباره.</p>
+        <button class="btn primary" id="breakBtn">قطع مدار</button>
+
+        <div class="practice-reveal" id="practiceReveal">
+          <div class="practice" style="margin-top:0">
+            <div class="practice-head">تمرین عملی · شکستن مدار رباتیک</div>
+            <h4>حضور صددرصدی در یک عمل ساده</h4>
+            <ol>
+              <li><b>رصد عادت‌های بی‌اختیار:</b> امروز یکی از کارهای تکراری و اتوماتیک خود (دست بردن به سمت گوشی، رانندگی در مسیر همیشگی، یا کارهای روزمره) را انتخاب کن.</li>
+              <li><b>حضور صددرصدی:</b> وسط انجام آن کار ناگهان بایست، مدار اتوماتیک را قطع کن و ادامه آن عمل ساده را با حضور کامل در لحظه حال و مشاهده‌گری انجام بده.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= اپیزود ۳ ================= -->
+<section class="sec" id="ep3">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-ghost">۰۳</div>
+      <div class="ep-badge">اپیزود ۰۳</div>
+      <h2>رانندگی در جنگل مه‌آلود</h2>
+      <p class="ep-sub">محدودیت حواس و تفاوت انسان خواب با سالک بیدار</p>
+    </div>
+
+    <!-- مه -->
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>تمثیل جنگل مه‌آلود</h3>
+      <p>
+        زندگی در جهان مادی مانند حرکت در جنگل مه‌آلود است. تصمیم‌گیری فقط با ابزارهای محدود حسی،
+        یعنی سقوط مداوم در چاله‌ها. اسلایدر <b>چراغ درون</b> را روشن کن.
+      </p>
+
+      <div class="fog-scene" id="fogScene" style="margin-top:24px">
+        <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="fSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0d1626"/><stop offset="1" stop-color="#050810"/>
+            </linearGradient>
+            <linearGradient id="fRoad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#161d2b"/><stop offset="1" stop-color="#0a0f18"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="260" fill="url(#fSky)"/>
+          <g fill="#0e1726">
+            <path d="M38 210 L58 110 L78 210 Z"/>
+            <path d="M86 210 L104 128 L122 210 Z"/>
+            <path d="M300 210 L320 118 L340 210 Z"/>
+            <path d="M344 210 L362 132 L380 210 Z"/>
+          </g>
+          <g fill="#111c2d">
+            <path d="M12 212 L34 96 L56 212 Z"/>
+            <path d="M330 212 L354 100 L378 212 Z"/>
+          </g>
+          <path d="M150 260 L190 190 L215 190 L255 260 Z" fill="url(#fRoad)"/>
+          <g stroke="rgba(255,255,255,.16)" stroke-width="2.4" stroke-dasharray="10 14">
+            <line x1="202" y1="196" x2="202" y2="256"/>
+          </g>
+          <ellipse cx="228" cy="228" rx="18" ry="7" fill="#02040a"/>
+          <ellipse cx="228" cy="228" rx="18" ry="7" fill="none" stroke="rgba(251,113,133,.35)" stroke-width="1.4"/>
+          <g>
+            <rect x="176" y="176" width="52" height="18" rx="6" fill="#20304d"/>
+            <rect x="186" y="168" width="32" height="13" rx="5" fill="#2a3b5c"/>
+            <circle cx="188" cy="196" r="5" fill="#080d16" stroke="#2b3852" stroke-width="1.4"/>
+            <circle cx="218" cy="196" r="5" fill="#080d16" stroke="#2b3852" stroke-width="1.4"/>
+          </g>
+        </svg>
+
+        <div class="fog-layers">
+          <div class="fog-layer f1"></div>
+          <div class="fog-layer f2"></div>
+        </div>
+        <div class="light-cone"></div>
+      </div>
+
+      <input type="range" id="fogRange" min="0" max="100" value="0" aria-label="شدت چراغ درون">
+      <div class="range-labels"><span>بدون چراغ</span><span>چراغ درون روشن</span></div>
+      <p class="fog-cap" id="fogCap"></p>
+
+      <div class="practice">
+        <div class="practice-head">تمرین عملی · پل زدن از ۱٪ به ۹۹٪</div>
+        <h4>توقف قضاوت ظاهری</h4>
+        <ol>
+          <li>امروز در مواجهه با هر مانع، اتفاق ناخوشایند یا رفتار آزاردهنده از دیگران، به دید ظاهری خود اعتماد مطلق نکن و <b>واکنش سریع نشان نده</b>.</li>
+          <li>در دل خود بگو: <b>«هوا مه‌آلود است و این فقط ۱ درصد ماجراست»</b>؛ سپس به دنبال کشف پیام و حکمتی باش که در ۹۹ درصدِ پشت صحنه برای رشد تو پنهان شده است.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ۹۹ به ۱ -->
+    <div class="card" data-reveal style="--d:.08s">
+      <h3 class="card-title"><span class="dot"></span>قانون ۹۹ به ۱</h3>
+      <p>
+        حواس پنج‌گانه ما تنها <b>۱ درصد</b> از واقعیت فیزیکی و ظاهری (بعد ناسوت) را می‌بیند و
+        <b>۹۹ درصد</b> حقیقت جهان در بعد انرژی، اطلاعات و باطن (بعد ملکوت) پنهان است.
+      </p>
+
+      <div class="ratio" id="ratio">
+        <div class="ratio-known"><span>۱٪</span><small>حواس<br>پنج‌گانه</small></div>
+        <div class="ratio-unknown">
+          <span>۹۹٪</span>
+          <div class="hidden-labels">
+            <i>انرژی</i><i>اطلاعات</i><i>باطن</i>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:22px">
+        <button class="btn ghost" id="revealRatio">پرده را کنار بزن</button>
+      </div>
+
+      <p style="margin-top:22px">
+        <b>انسان خواب</b> نمی‌داند که هوا مه‌آلود است، فکر می‌کند کل دنیا همین ۱ درصد است و با سرعت در چاله‌ها می‌افتد.
+        اما <b>انسان در مسیر بیداری</b>، مه را تشخیص داده، سرعت قضاوتش را کم می‌کند و به دنبال روشن کردن
+        «چراغ درون» (چشم دل) می‌گردد.
+      </p>
+    </div>
+
+    <!-- فیل -->
+    <div class="card" data-reveal style="--d:.08s">
+      <h3 class="card-title"><span class="dot"></span>تمثیل فیل در تاریکی</h3>
+      <p>
+        دنیا مانند اتاقی تاریک است که انسان‌ها با حواس ظاهری فقط بخش کوچکی از واقعیت (فیل) را لمس می‌کنند
+        و بر سر همان درک ناقص با هم می‌جنگند. یکی از بخش‌ها را انتخاب کن.
+      </p>
+
+      <div class="elephant">
+        <svg class="ele-svg" viewBox="0 0 420 280" aria-hidden="true">
+          <ellipse class="ele-part" id="el-body" cx="200" cy="150" rx="98" ry="72"></ellipse>
+          <circle class="ele-part" id="el-head" cx="305" cy="122" r="52"></circle>
+          <ellipse class="ele-part" id="el-ear" cx="316" cy="104" rx="30" ry="40" transform="rotate(-12 316 104)"></ellipse>
+          <path class="ele-part" id="el-trunk"
+                d="M332 152 C358 172 356 214 322 230 C306 238 290 232 287 218 C285 208 292 202 300 206 C312 212 318 200 312 186 C306 172 316 158 332 152 Z"></path>
+          <rect class="ele-part" id="el-leg1" x="140" y="200" width="30" height="62" rx="10"></rect>
+          <rect class="ele-part" id="el-leg2" x="186" y="206" width="30" height="58" rx="10"></rect>
+          <rect class="ele-part" id="el-leg3" x="236" y="204" width="30" height="60" rx="10"></rect>
+          <rect class="ele-part" id="el-leg4" x="278" y="198" width="30" height="64" rx="10"></rect>
+          <path class="ele-part" id="el-tail"
+                d="M106 132 C84 144 78 174 88 196 C91 203 100 202 100 194 C96 176 102 156 116 148 Z"></path>
+        </svg>
+
+        <div class="ele-buttons" id="eleButtons">
+          <button class="chip" data-part="el-trunk">خرطوم</button>
+          <button class="chip" data-part="el-ear">گوش</button>
+          <button class="chip" data-part="el-leg1">پا</button>
+          <button class="chip" data-part="el-tail">دم</button>
+        </div>
+
+        <p class="ele-text" id="eleText">
+          در تاریکی، هر کس بخشی از فیل را لمس کرد و پنداشت که کل حقیقت را دیده است.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= جمع‌بندی ================= -->
+<section class="sec" id="final">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">جمع‌بندی</div>
+      <h2>سه کلیدِ بیداری</h2>
+      <p class="ep-sub">آنچه از این تور با خودت می‌بری</p>
+    </div>
+
+    <div class="keys">
+      <div class="key" data-reveal style="--d:.05s">
+        <span class="knum">۰۱</span>
+        <h4>میدان، نه دکور</h4>
+        <p>بیداری در ترافیک و محل کار و خانه اتفاق می‌افتد؛ نه در غار و کوهستان.</p>
+      </div>
+      <div class="key" data-reveal style="--d:.15s">
+        <span class="knum">۰۲</span>
+        <h4>قطع مدار اتوماتیک</h4>
+        <p>۹۵ درصد زندگی، تکرار است. یک بار وسط عادت بایست و با حضور کامل ادامه بده.</p>
+      </div>
+      <div class="key" data-reveal style="--d:.25s">
+        <span class="knum">۰۳</span>
+        <h4>چراغ درون</h4>
+        <p>هوا مه‌آلود است. سرعت قضاوت را کم کن و پشت ۱ درصد ظاهری، ۹۹ درصد حکمت را بجو.</p>
+      </div>
+    </div>
+
+    <div class="card" data-reveal style="--d:.1s;margin-top:34px">
+      <h3 class="card-title"><span class="dot"></span>چک‌لیست امروز</h3>
+      <p>سه قدم عملی این تور را همین امروز تیک بزن.</p>
+
+      <div class="check-list" id="checkList">
+        <label class="check-item">
+          <input type="checkbox">
+          <span class="box"></span>
+          <span class="txt">در لحظه‌ی اوج کلافگی، ترمز دستی ذهن را کشیدم و ۵ ثانیه مکث کردم.</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox">
+          <span class="box"></span>
+          <span class="txt">یک عادت اتوماتیک را وسط کار قطع کردم و با حضور کامل ادامه دادم.</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox">
+          <span class="box"></span>
+          <span class="txt">در یک موقعیت ناخوشایند، به دید ظاهری اعتماد نکردم و دنبال پیام باطنی گشتم.</span>
+        </label>
+      </div>
+
+      <p class="check-progress" id="checkProgress">۰ از ۳ قدم انجام شده</p>
+    </div>
+
+    <div class="quote" data-reveal style="--d:.15s">
+      «بیداری یعنی پس گرفتن فرمانرواییِ امپراتوریِ روح از دست نفس.»
+      <small>سفر تو از همین لحظه شروع می‌شود؛ در میدان، نه در دکور.</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  تور بصری بیداری · ساخته‌شده برای یادگیری عمیق‌تر · اسکرول کن، بازی کن، تمرین کن.
+</footer>
+
+</main>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- ابزارهای کمکی ---------- */
+  var faDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  function toFa(n){
+    return String(n).replace(/\d/g, function(d){ return faDigits[+d]; });
+  }
+
+  /* ---------- نوار پیشرفت ---------- */
+  var progress = document.getElementById('progress');
+  function updateProgress(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+
+  /* ---------- اسکرول نرم دکمه‌ها ---------- */
+  document.querySelectorAll('[data-scroll]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = document.querySelector(btn.getAttribute('data-scroll'));
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  /* ---------- ناوبری کناری (rail) ---------- */
+  var railBtns = Array.prototype.slice.call(document.querySelectorAll('.rail button'));
+  var railSections = railBtns.map(function(b){
+    return document.querySelector(b.getAttribute('data-scroll'));
+  });
+  railBtns.forEach(function(btn, i){
+    btn.addEventListener('click', function(){
+      railSections[i].scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  /* ---------- Reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){ revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- مشاهده بخش‌ها برای نوار پیشرفت + rail ---------- */
+  var allSections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  function onScroll(){
+    updateProgress();
+
+    // فعال کردن نقطه rail
+    var scrollPos = window.scrollY + window.innerHeight * 0.32;
+    var currentIdx = 0;
+    allSections.forEach(function(sec, i){
+      if(sec.offsetTop <= scrollPos) currentIdx = i;
+    });
+    railBtns.forEach(function(b, i){
+      b.classList.toggle('active', railSections[i] === allSections[currentIdx]);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+
+  /* ---------- اپیزود ۱: صحنه دوگانه ---------- */
+  var sceneWrap = document.getElementById('sceneWrap');
+  var sceneRange = document.getElementById('sceneRange');
+  var sceneCap = document.getElementById('sceneCap');
+  function updateScene(){
+    var v = +sceneRange.value;
+    var showReal = v >= 50;
+    sceneWrap.classList.toggle('show-real', showReal);
+    if(showReal){
+      sceneCap.innerHTML = '<b>میدان واقعی:</b> زندگی واقعی و سلوک حقیقی در کف خیابان، وسط ترافیک، در محیط کار و هنگام مواجهه با چالش‌های مالی و بحث‌های روزمره شکل می‌گیرد.';
+    } else {
+      sceneCap.innerHTML = '<b>دکور معنوی:</b> تصور اینکه بیداری یعنی روشن کردن عود، پخش موزیک ملایم و فرار از دنیا به غار و کوهستان، یک تصویر فانتزی برای فرار از صحنه زندگی است.';
+    }
+  }
+  sceneRange.addEventListener('input', updateScene);
+  updateScene();
+
+  /* ---------- استرس ---------- */
+  var stressRange = document.getElementById('stressRange');
+  var gaugeFill = document.getElementById('gaugeFill');
+  var stateName = document.getElementById('stateName');
+  var stateDesc = document.getElementById('stateDesc');
+  var willFill = document.getElementById('willFill');
+  var willPct = document.getElementById('willPct');
+
+  var stressStates = [
+    {max:25, hue:136, name:'آرامش — پنجره تحمل باز', desc:'سیستم عصبی در وضعیت متعادل است. تحلیل، تصمیم و انتخاب آگاهانه در دسترس است.'},
+    {max:55, hue:48, name:'فشار خفیف — حالت گوش‌به‌زنگ', desc:'کمی مضطرب شده‌ای، اما هنوز می‌توانی فکر کنی و انتخاب کنی. ترمز دستی ذهن هنوز کار می‌کند.'},
+    {max:80, hue:24, name:'فشار بالا — جنگ یا گریز', desc:'سیستم عصبی روی بقا قفل می‌شود. کوته‌نظری و واکنش سریع جای تصمیم آگاهانه را می‌گیرد.'},
+    {max:100, hue:0, name:'انجماد — اراده آگاهانه از دست رفته', desc:'مدار بقا کامل فعال است. در این حالت، نفس و ذهنِ شرطی‌شده به‌جای روح فرمان می‌دهند. اولین قدم: توقف و تنفس.'}
+  ];
+  function updateStress(){
+    var v = +stressRange.value;
+    gaugeFill.style.width = v + '%';
+    var st = stressStates[stressStates.length - 1];
+    for(var i=0;i<stressStates.length;i++){
+      if(v <= stressStates[i].max){ st = stressStates[i]; break; }
+    }
+    gaugeFill.style.background = 'hsl(' + st.hue + ' 85% 55%)';
+    stateName.textContent = st.name;
+    stateDesc.textContent = st.desc;
+
+    var will = Math.max(0, Math.round(100 - v * 0.85));
+    willFill.style.width = will + '%';
+    willPct.textContent = toFa(will) + '٪';
+  }
+  stressRange.addEventListener('input', updateStress);
+  updateStress();
+
+  /* ---------- اقیانوس ---------- */
+  var oceanRange = document.getElementById('oceanRange');
+  var oceanMarker = document.getElementById('oceanMarker');
+  var oceanDepthLabel = document.getElementById('oceanDepthLabel');
+  var oceanCap = document.getElementById('oceanCap');
+  function updateOcean(){
+    var v = +oceanRange.value;
+    var topPct = 12 + (v / 100) * 68; // ۱۲٪ تا ۸۰٪
+    oceanMarker.style.top = topPct + '%';
+    var glow = 30 - (v / 100) * 20;
+    var ring = 18 - (v / 100) * 10;
+    oceanMarker.style.boxShadow = '0 0 0 ' + ring + 'px rgba(94,234,212,.18), 0 0 ' + glow + 'px var(--cyan)';
+    oceanMarker.style.background = v > 65 ? 'var(--cyan)' : '#fff';
+
+    if(v < 20){
+      oceanDepthLabel.textContent = 'سطح پرطوفان';
+      oceanCap.innerHTML = '<b>سطح:</b> اینجا موج‌ها و طوفان‌های روزمره‌اند — ترافیک، بحث، ترس و خشم. اگر فقط اینجا باشی، تکان می‌خوری.';
+    } else if(v < 60){
+      oceanDepthLabel.textContent = 'لایه میانی';
+      oceanCap.innerHTML = '<b>میانه:</b> داری از سطح فاصله می‌گیری. طوفان هنوز هست، اما صدایش دورتر می‌شود. اسباب عقلی را به کار بگیر.';
+    } else if(v < 88){
+      oceanDepthLabel.textContent = 'عمق آرام';
+      oceanCap.innerHTML = '<b>عمق:</b> طوفان سطح در بالا جریان دارد، اما اینجا آرامش است. قلب وصل به عمق، متزلزل نمی‌شود.';
+    } else {
+      oceanDepthLabel.textContent = 'نقطه صفر · عمق اقیانوس';
+      oceanCap.innerHTML = '<b>نقطه صفر:</b> اینجاست که انسان بیدار، با همه اسباب عقلی در سطح، قلبش به عمق آرام اقیانوس وصل است و از طوفان نمی‌شکند.';
+    }
+  }
+  oceanRange.addEventListener('input', updateOcean);
+  updateOcean();
+
+  /* ---------- ترمز دستی ---------- */
+  var brakeBtn = document.getElementById('brakeBtn');
+  var brakeFg = document.getElementById('brakeFg');
+  var brakeNum = document.getElementById('brakeNum');
+  var brakeResult = document.getElementById('brakeResult');
+  var brakeTimer = null;
+
+  function resetBrake(){
+    brakeFg.style.transition = 'none';
+    brakeFg.style.strokeDashoffset = 0;
+    // اجبار reflow برای اعمال فوری
+    void brakeFg.getBoundingClientRect();
+    brakeFg.style.transition = 'stroke-dashoffset .9s linear';
+  }
+
+  brakeBtn.addEventListener('click', function(){
+    if(brakeTimer) return;
+    if(brakeResult.classList.contains('show')){
+      // بازنشانی
+      brakeResult.classList.remove('show');
+      resetBrake();
+      brakeNum.textContent = '۵';
+      brakeBtn.disabled = false;
+      brakeBtn.textContent = 'ترمز دستی ذهن را بکش';
+      return;
+    }
+
+    brakeBtn.disabled = true;
+    var count = 5;
+    brakeNum.textContent = toFa(count);
+    resetBrake();
+    // پر شدن حلقه در ۵ ثانیه
+    requestAnimationFrame(function(){
+      brakeFg.style.strokeDashoffset = 326.7;
+    });
+    brakeBtn.textContent = 'نفس بکش…';
+
+    brakeTimer = setInterval(function(){
+      count--;
+      if(count > 0){
+        brakeNum.textContent = toFa(count);
+      } else {
+        clearInterval(brakeTimer);
+        brakeTimer = null;
+        brakeNum.textContent = '✓';
+        brakeResult.classList.add('show');
+        brakeBtn.disabled = false;
+        brakeBtn.textContent = 'دوباره انجام بده';
+      }
+    }, 1000);
+  });
+
+  /* ---------- دونات ---------- */
+  var donut = document.getElementById('donut');
+  var donutNum = document.getElementById('donutNum');
+  var donutLabel = document.getElementById('donutLabel');
+  var legendItems = Array.prototype.slice.call(document.querySelectorAll('#legend li'));
+  var segs = Array.prototype.slice.call(document.querySelectorAll('#donut .seg'));
+
+  var donutData = {
+    a: {num:'۵٪', label:'خودآگاه', seg:'a'},
+    b: {num:'۱۵٪', label:'نیمه‌خودآگاه', seg:'b'},
+    c: {num:'۸۰٪', label:'ناخودآگاه', seg:'c'},
+    all:{num:'۹۵٪', label:'اتوماتیک', seg:null}
+  };
+
+  function highlightDonut(key){
+    segs.forEach(function(s){
+      s.classList.toggle('hot', key !== 'all' && s.getAttribute('data-key') === key);
+      s.classList.toggle('dim', key !== 'all' && s.getAttribute('data-key') !== key);
+    });
+    legendItems.forEach(function(li){
+      li.classList.toggle('hot', key !== 'all' && li.getAttribute('data-key') === key);
+    });
+    var d = donutData[key] || donutData.all;
+    donutNum.textContent = d.num;
+    donutLabel.textContent = d.label;
+  }
+
+  legendItems.forEach(function(li){
+    var key = li.getAttribute('data-key');
+    li.addEventListener('mouseenter', function(){ highlightDonut(key); });
+    li.addEventListener('click', function(){ highlightDonut(key); });
+  });
+  segs.forEach(function(s){
+    var key = s.getAttribute('data-key');
+    s.addEventListener('mouseenter', function(){ highlightDonut(key); });
+    s.addEventListener('click', function(){ highlightDonut(key); });
+  });
+  var donutWrapEl = donut.parentElement;
+  donutWrapEl.addEventListener('mouseleave', function(){ highlightDonut('all'); });
+
+  // فعال کردن انیمیشن دونات وقتی وارد دید شد
+  if('IntersectionObserver' in window){
+    var donutObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          donut.classList.add('in');
+          donutObs.unobserve(donut);
+        }
+      });
+    }, {threshold:0.3});
+    donutObs.observe(donut);
+  } else {
+    donut.classList.add('in');
+  }
+  highlightDonut('all');
+
+  /* ---------- قطع مدار ---------- */
+  var loopBox = document.getElementById('loopBox');
+  var breakBtn = document.getElementById('breakBtn');
+  var loopNote = document.getElementById('loopNote');
+  var practiceReveal = document.getElementById('practiceReveal');
+
+  breakBtn.addEventListener('click', function(){
+    var broken = loopBox.classList.toggle('broken');
+    if(broken){
+      loopNote.textContent = 'مدار قطع شد. این لحظه، لحظه بیداری است.';
+      practiceReveal.classList.add('show');
+      breakBtn.textContent = 'دوباره وصل کن';
+    } else {
+      loopNote.textContent = 'زنگ ساعت ← گوشی ← اسکرول ← کار ← گوشی ← خواب … و فردا دوباره.';
+      practiceReveal.classList.remove('show');
+      breakBtn.textContent = 'قطع مدار';
+    }
+  });
+
+  /* ---------- مه ---------- */
+  var fogScene = document.getElementById('fogScene');
+  var fogRange = document.getElementById('fogRange');
+  var fogCap = document.getElementById('fogCap');
+  function updateFog(){
+    var v = +fogRange.value;
+    fogScene.style.setProperty('--light', v / 100);
+    if(v < 30){
+      fogCap.innerHTML = '<b>بدون چراغ:</b> انسان خواب نمی‌داند هوا مه‌آلود است؛ فکر می‌کند کل دنیا همین ۱ درصد است و با سرعت در چاله‌ها می‌افتد.';
+    } else if(v < 70){
+      fogCap.innerHTML = '<b>مه را دیدی:</b> انسان در مسیر بیداری، مه را تشخیص داده و سرعت قضاوتش را کم کرده است. حالا دنبال چراغ می‌گردد.';
+    } else {
+      fogCap.innerHTML = '<b>چراغ درون روشن:</b> چشم دل باز شده. حالا در همان جنگل مه‌آلود، راه دیده می‌شود و چاله‌ها قابل تشخیص‌اند.';
+    }
+  }
+  fogRange.addEventListener('input', updateFog);
+  updateFog();
+
+  /* ---------- نسبت ۹۹/۱ ---------- */
+  var ratio = document.getElementById('ratio');
+  var revealRatio = document.getElementById('revealRatio');
+  revealRatio.addEventListener('click', function(){
+    var revealed = ratio.classList.toggle('revealed');
+    revealRatio.textContent = revealed ? 'دوباره پنهان کن' : 'پرده را کنار بزن';
+  });
+
+  /* ---------- فیل ---------- */
+  var eleText = document.getElementById('eleText');
+  var eleButtons = Array.prototype.slice.call(document.querySelectorAll('#eleButtons .chip'));
+  var eleParts = ['el-trunk','el-ear','el-leg1','el-tail'].map(function(id){
+    return document.getElementById(id);
+  });
+
+  var eleMessages = {
+    'el-trunk': 'کسی خرطوم را لمس کرد و گفت: «فیل مثل یک لوله است.»',
+    'el-ear':   'کسی گوش را لمس کرد و گفت: «فیل مثل یک بادبزن است.»',
+    'el-leg1':  'کسی پا را لمس کرد و گفت: «فیل مثل یک ستون است.»',
+    'el-tail':  'کسی دم را لمس کرد و گفت: «فیل مثل یک طناب است.»'
+  };
+
+  function selectEle(partId){
+    eleParts.forEach(function(p){ p.classList.toggle('active', p.id === partId); });
+    eleButtons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-part') === partId); });
+    eleText.textContent = eleMessages[partId] || 'در تاریکی، هر کس بخشی از فیل را لمس کرد و پنداشت که کل حقیقت را دیده است.';
+  }
+
+  eleButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var part = btn.getAttribute('data-part');
+      if(btn.classList.contains('active')){
+        // لغو انتخاب
+        eleParts.forEach(function(p){ p.classList.remove('active'); });
+        eleButtons.forEach(function(b){ b.classList.remove('active'); });
+        eleText.textContent = 'در تاریکی، هر کس بخشی از فیل را لمس کرد و پنداشت که کل حقیقت را دیده است.';
+      } else {
+        selectEle(part);
+      }
+    });
+  });
+  eleParts.forEach(function(p){
+    p.addEventListener('click', function(){ selectEle(p.id); });
+  });
+
+  /* ---------- چک‌لیست ---------- */
+  var checkInputs = Array.prototype.slice.call(document.querySelectorAll('#checkList input[type=checkbox]'));
+  var checkProgress = document.getElementById('checkProgress');
+  function updateChecks(){
+    var checked = checkInputs.filter(function(c){ return c.checked; }).length;
+    checkProgress.innerHTML = '<b>' + toFa(checked) + '</b> از ۳ قدم انجام شده';
+  }
+  checkInputs.forEach(function(c){ c.addEventListener('change', updateChecks); });
+  updateChecks();
+
+  /* ---------- اجرای اولیه ---------- */
+  onScroll();
+  updateProgress();
+})();
+</script>
+</body>
+</html>
