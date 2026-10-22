@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اپیزود ۵ | بیل طلایی وسط طویله</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05070f;--ink:#e9eefb;--muted:#93a1bf;--line:rgba(255,255,255,.09);--cyan:#5eead4;--violet:#a78bfa;--gold:#f5c26b;--rose:#fb7185;--r:24px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Vazirmatn',system-ui,'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:2;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+ul,ol{padding-inline-start:1.2em}
+b{color:#fff;font-weight:800}
+::selection{background:rgba(245,194,107,.3);color:#fff}
+
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:radial-gradient(1200px 700px at 82% -10%,#2a2140 0%,transparent 62%),radial-gradient(900px 620px at 8% 8%,#2a1f14 0%,transparent 58%),radial-gradient(1000px 800px at 50% 112%,#0a2a2a 0%,transparent 62%),#05070f}
+.bg::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(circle at 50% 30%,#000 15%,transparent 72%);mask-image:radial-gradient(circle at 50% 30%,#000 15%,transparent 72%);opacity:.55}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.3;animation:float 20s ease-in-out infinite}
+.b1{width:420px;height:420px;background:#7a5210;top:-120px;right:-80px}
+.b2{width:380px;height:380px;background:#0f6a72;bottom:10%;left:-120px;animation-delay:-7s}
+.b3{width:300px;height:300px;background:#4a2f7a;top:45%;right:40%;animation-delay:-12s;opacity:.2}
+@keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(30px,-40px,0) scale(1.12)}}
+
+.progress{position:fixed;top:0;right:0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--gold),var(--cyan) 55%,var(--violet));box-shadow:0 0 14px rgba(245,194,107,.6);transition:width .12s linear}
+.rail{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:16px}
+.rail button{width:11px;height:11px;border-radius:50%;padding:0;cursor:pointer;border:1px solid rgba(255,255,255,.28);background:transparent;position:relative;transition:.35s}
+.rail button.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 14px var(--gold);transform:scale(1.3)}
+.rail button span{position:absolute;left:24px;top:50%;transform:translateY(-50%) translateX(-8px);white-space:nowrap;font-size:.72rem;font-weight:600;background:rgba(10,15,28,.94);border:1px solid var(--line);padding:5px 12px;border-radius:9px;color:var(--ink);opacity:0;pointer-events:none;transition:.3s}
+.rail button:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:860px){.rail{display:none}}
+
+.wrap{width:min(1040px,calc(100% - 40px));margin-inline:auto}
+.sec{padding:clamp(56px,9vw,100px) 0;position:relative;scroll-margin-top:20px}
+
+.js-ready [data-reveal]{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s)}
+.js-ready [data-reveal].in{opacity:1;transform:none}
+
+/* هیرو */
+.hero{min-height:92svh;display:grid;place-items:center;text-align:center;padding:100px 0 70px;position:relative}
+.hero-shovel{width:110px;height:auto;margin:0 auto 26px;animation:bob 4.5s ease-in-out infinite;filter:drop-shadow(0 0 26px rgba(245,194,107,.55))}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.82rem;letter-spacing:.06em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:8px 18px;background:rgba(255,255,255,.03)}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+h1{font-size:clamp(2rem,6.5vw,4rem);line-height:1.25;font-weight:800;letter-spacing:-.02em;margin:.4em 0 .25em}
+.grad{background:linear-gradient(90deg,var(--gold),#ffe9b0 45%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:640px;margin:0 auto;color:var(--muted);font-size:clamp(.96rem,2.1vw,1.08rem);line-height:2.1}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{font-family:inherit;font-size:.95rem;font-weight:700;cursor:pointer;padding:13px 30px;border-radius:999px;border:1px solid transparent;transition:transform .3s,box-shadow .3s,background .3s}
+.btn.primary{background:linear-gradient(90deg,var(--gold),#ffd98a);color:#241503;box-shadow:0 12px 34px -12px rgba(245,194,107,.9)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px -14px rgba(245,194,107,1)}
+.btn.ghost{background:rgba(255,255,255,.045);border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+.btn:disabled{opacity:.5;cursor:default;transform:none!important}
+.scroll-hint{margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-size:.8rem}
+.scroll-hint span{display:block;width:22px;height:36px;border:1.6px solid rgba(255,255,255,.25);border-radius:12px;position:relative}
+.scroll-hint span::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:7px;border-radius:3px;background:var(--gold);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%,100%{top:7px;opacity:1}60%{top:20px;opacity:0}}
+
+/* کارت */
+.card{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,4vw,38px);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.card::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(620px 220px at 100% 0%,rgba(245,194,107,.1),transparent 70%)}
+.card + .card{margin-top:26px}
+.card-title{font-size:clamp(1.1rem,2.6vw,1.4rem);font-weight:800;display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.card-title .dot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+.card p{color:var(--muted)}
+.card p b{color:#fff}
+
+.ep-head{text-align:center;margin-bottom:clamp(30px,6vw,54px);position:relative}
+.ep-badge{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;padding:7px 18px;border-radius:99px;border:1px solid rgba(245,194,107,.4);color:var(--gold);background:rgba(245,194,107,.08);margin-bottom:18px}
+.ep-head h2{font-size:clamp(1.5rem,4.6vw,2.6rem);font-weight:800;line-height:1.4;letter-spacing:-.01em}
+.ep-sub{color:var(--muted);margin-top:10px;font-size:clamp(.9rem,2.2vw,1.02rem)}
+
+/* ===== مرورگر ذهن ===== */
+.browser{border-radius:18px;border:1px solid var(--line);overflow:hidden;background:#080d18;margin-top:26px}
+.browser-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--line)}
+.bdot{width:9px;height:9px;border-radius:50%;flex:none}
+.bdot.r{background:#fb7185}.bdot.y{background:#f5c26b}.bdot.g{background:#5eead4}
+.browser-title{margin-inline-start:8px;font-size:.76rem;color:var(--muted);font-weight:600}
+.tabs-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px}
+@media(max-width:560px){.tabs-list{grid-template-columns:1fr}}
+.tab-btn{display:flex;align-items:center;gap:10px;width:100%;font-family:inherit;font-size:.85rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:11px 14px;cursor:pointer;transition:.3s;text-align:right}
+.tab-btn:hover{background:rgba(255,255,255,.07);color:var(--ink)}
+.tab-btn.open{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.45);color:#fff;box-shadow:0 0 18px -8px var(--rose)}
+.tab-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);flex:none;transition:.3s}
+.tab-btn.open .tab-dot{background:var(--rose);box-shadow:0 0 10px var(--rose)}
+.tab-cost{margin-inline-start:auto;font-size:.72rem;color:var(--muted);font-weight:700;flex:none}
+.tab-btn.open .tab-cost{color:var(--rose)}
+
+.ram-panel{margin-top:22px;padding:20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.ram-row{margin-bottom:16px}
+.ram-head{display:flex;justify-content:space-between;font-size:.84rem;color:var(--muted);margin-bottom:8px;font-weight:600}
+.ram-head b{color:#fff}
+.bar{height:12px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;border:1px solid var(--line)}
+.bar span{display:block;height:100%;width:0;border-radius:99px;transition:width .45s cubic-bezier(.22,1,.36,1),background .45s}
+.ram-bar span{background:linear-gradient(90deg,#fb7185,#be123c)}
+.cpu-bar span{background:linear-gradient(90deg,var(--cyan),var(--violet));width:100%}
+.tab-msg{margin-top:6px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:.9rem;color:var(--muted);line-height:1.9;min-height:62px;transition:.3s}
+.tab-msg.warn{border-color:rgba(251,113,133,.35);background:rgba(251,113,133,.07);color:#fecdd3}
+.tab-msg.good{border-color:rgba(94,234,212,.35);background:rgba(94,234,212,.07);color:#a7f3d0}
+
+/* ===== بیل زرین ===== */
+.shovel-scene{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);margin-top:24px;background:#080c17}
+.shovel-scene svg{display:block;width:100%;height:auto}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;margin:22px 0 6px;background:rgba(255,255,255,.13);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;border:none;background:linear-gradient(135deg,#fff,var(--gold));box-shadow:0 0 0 5px rgba(245,194,107,.16),0 6px 18px rgba(0,0,0,.55);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;border:none;background:linear-gradient(135deg,#fff,var(--gold));box-shadow:0 0 0 5px rgba(245,194,107,.16);cursor:pointer}
+.range-labels{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted)}
+.shovel-cap{margin-top:16px;font-size:.94rem;color:var(--muted);min-height:3.6em}
+.shovel-cap b{color:var(--gold)}
+.shine-pct{font-weight:800;color:var(--gold)}
+
+.verse{margin-top:26px;padding:clamp(24px,5vw,42px) 20px;border-radius:20px;text-align:center;border:1px solid rgba(245,194,107,.3);background:linear-gradient(180deg,rgba(245,194,107,.09),rgba(245,194,107,.02))}
+.verse-text{font-size:clamp(1.05rem,3.2vw,1.5rem);font-weight:700;line-height:2.2;color:#fff}
+.verse-src{font-size:.82rem;color:var(--gold);margin-top:12px;font-weight:600}
+
+/* ===== معامله ===== */
+.trade-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,3vw,26px);align-items:center;margin-top:28px}
+@media(max-width:560px){.trade-grid{grid-template-columns:1fr;justify-items:center}.trade-arrow{transform:rotate(90deg)}}
+.trade-card{width:100%;text-align:center;padding:26px 16px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.035);transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .45s,box-shadow .45s,border-color .45s}
+.trade-card h4{font-size:.98rem;font-weight:800;margin:10px 0 6px;color:#fff}
+.trade-card p{font-size:.82rem;color:var(--muted);line-height:1.8}
+.trade-icon{font-size:2.6rem;line-height:1;display:block}
+#diamondCard{border-color:rgba(94,234,212,.3);box-shadow:0 0 30px -18px var(--cyan)}
+#candyCard{border-color:rgba(245,194,107,.3)}
+#candyCard.pop{animation:candyPop .5s cubic-bezier(.22,1,.36,1)}
+@keyframes candyPop{0%{transform:scale(1)}45%{transform:scale(1.1);box-shadow:0 0 40px -10px var(--gold)}100%{transform:scale(1)}}
+.trade-arrow{font-size:1.5rem;color:var(--muted)}
+.trade-counter{margin-top:18px;text-align:center;font-size:.86rem;color:var(--muted)}
+.trade-counter b{color:var(--rose);font-size:1.1rem}
+
+/* ===== محاسبه سود و زیان ===== */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.chip{font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;padding:10px 20px;border-radius:99px;color:var(--ink);background:rgba(255,255,255,.045);border:1px solid var(--line);transition:.3s}
+.chip:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.chip.active{background:rgba(245,194,107,.15);border-color:var(--gold);color:var(--gold);box-shadow:0 0 20px -6px var(--gold)}
+.chip.done{opacity:.55;border-style:dashed}
+.balance{margin-top:24px}
+.meter-row{margin-bottom:16px}
+.meter-label{display:flex;justify-content:space-between;font-size:.84rem;color:var(--muted);margin-bottom:8px;font-weight:600}
+.meter-label b{color:#fff}
+.meter{height:12px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;border:1px solid var(--line)}
+.meter span{display:block;height:100%;width:0;border-radius:99px;transition:width .55s cubic-bezier(.22,1,.36,1)}
+#costFill{background:linear-gradient(90deg,#fb7185,#be123c)}
+#gainFill{background:linear-gradient(90deg,var(--cyan),var(--violet))}
+.verdict{margin-top:16px;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:.93rem;color:var(--muted);line-height:1.95;min-height:72px;transition:.3s}
+.verdict.warn{border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08);color:#fecdd3}
+.verdict.good{border-color:rgba(94,234,212,.4);background:rgba(94,234,212,.08);color:#a7f3d0}
+.saved{margin-top:18px;text-align:center;font-size:.88rem;color:var(--muted)}
+.saved b{color:var(--gold);font-size:1.15rem}
+.saved.pop b{animation:savedPop .5s cubic-bezier(.22,1,.36,1)}
+@keyframes savedPop{0%{transform:scale(1)}50%{transform:scale(1.35)}100%{transform:scale(1)}}
+
+.practice{margin-top:26px;border-radius:var(--r);padding:clamp(20px,4vw,32px);border:1px dashed rgba(245,194,107,.4);background:linear-gradient(180deg,rgba(245,194,107,.075),rgba(245,194,107,.02))}
+.practice-head{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.06em;color:var(--gold);border:1px solid rgba(245,194,107,.4);background:rgba(245,194,107,.1);border-radius:99px;padding:5px 16px;margin-bottom:16px}
+.practice h4{font-size:1.04rem;font-weight:800;margin-bottom:12px;color:#fff}
+.practice li{color:var(--muted);margin-bottom:10px;font-size:.95rem}
+.practice li b{color:var(--gold)}
+
+/* ===== جمع‌بندی ===== */
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:30px}
+.key{padding:24px 22px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));transition:.4s}
+.key:hover{transform:translateY(-6px);border-color:rgba(245,194,107,.35);box-shadow:0 22px 50px -30px var(--gold)}
+.key .knum{font-size:1.9rem;font-weight:800;line-height:1;background:linear-gradient(180deg,var(--gold),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px;display:block}
+.key h4{font-size:.98rem;font-weight:800;margin-bottom:8px;color:#fff}
+.key p{font-size:.88rem;color:var(--muted)}
+
+.check-list{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.check-item{display:flex;align-items:center;gap:14px;cursor:pointer;padding:15px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.35s;font-size:.94rem}
+.check-item:hover{background:rgba(255,255,255,.06)}
+.check-item input{display:none}
+.check-item .box{width:24px;height:24px;border-radius:8px;flex:none;border:2px solid rgba(255,255,255,.22);position:relative;transition:.35s}
+.check-item input:checked ~ .box{background:linear-gradient(135deg,var(--gold),var(--cyan));border-color:transparent;box-shadow:0 0 18px -4px var(--gold)}
+.check-item input:checked ~ .box::after{content:'';position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #241503;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.check-item input:checked ~ .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(245,194,107,.5)}
+.check-progress{font-size:.86rem;color:var(--muted);margin-top:18px;text-align:center}
+.check-progress b{color:var(--gold)}
+
+.quote{text-align:center;padding:clamp(30px,6vw,56px) 20px;font-size:clamp(1.05rem,3vw,1.4rem);font-weight:700;line-height:2.1;color:#fff;position:relative}
+.quote::before,.quote::after{content:'';display:block;width:64px;height:2px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.quote::before{margin-bottom:26px}
+.quote::after{margin-top:26px}
+.quote small{display:block;font-size:.82rem;color:var(--muted);font-weight:400;margin-top:14px}
+
+footer{text-align:center;padding:44px 20px 60px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);margin-top:36px}
+
+@media(max-width:640px){.hero-shovel{width:84px}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}html{scroll-behavior:auto}}
+</style>
+<script>document.documentElement.classList.add('js-ready');</script>
+</head>
+<body>
+
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="progress" id="progress"></div>
+
+<nav class="rail" id="rail" aria-label="ناوبری اپیزود">
+  <button data-scroll="#hero" class="active" aria-label="شروع"><span>شروع</span></button>
+  <button data-scroll="#science" aria-label="بعد علمی"><span>بعد علمی · تب‌های باز</span></button>
+  <button data-scroll="#shovel" aria-label="بیل زرین"><span>بیل زرین مولانا</span></button>
+  <button data-scroll="#trade" aria-label="ارزان‌فروشی"><span>ارزان‌فروشی</span></button>
+  <button data-scroll="#practice" aria-label="تمرین"><span>تمرین عملی</span></button>
+  <button data-scroll="#final" aria-label="جمع‌بندی"><span>جمع‌بندی</span></button>
+</nav>
+
+<main>
+
+<!-- ================= هیرو ================= -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <svg class="hero-shovel" viewBox="0 0 120 190" aria-hidden="true">
+      <defs>
+        <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f5c26b"/><stop offset="1" stop-color="#a86a1e"/>
+        </linearGradient>
+      </defs>
+      <rect x="56" y="10" width="8" height="86" rx="4" fill="#b98b46"/>
+      <path d="M42 14 h36" stroke="#d8a95e" stroke-width="9" stroke-linecap="round"/>
+      <path d="M38 96 C38 152 60 178 60 178 C60 178 82 152 82 96 Z" fill="url(#hg)" stroke="#8a5a17" stroke-width="1.6"/>
+      <path d="M48 106 C48 144 57 162 60 170" stroke="rgba(255,255,255,.65)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </svg>
+    <p class="eyebrow">اپیزود ۰۵ · سرمایه روح</p>
+    <h1>بیل طلایی<br><span class="grad">وسط طویله!</span></h1>
+    <p class="lead">
+      روح، عمر و هوشمندی الهی تو یک «بیل زرین» است. این اپیزود دربارهٔ این است که
+      چطور آن را در نجاستِ درگیری‌ها و حواشی روزمره فرو می‌کنیم — و چطور بیرونش بکشیم.
+    </p>
+    <div class="hero-cta">
+      <button class="btn primary" data-scroll="#science">شروع اپیزود</button>
+      <button class="btn ghost" data-scroll="#final">جمع‌بندی</button>
+    </div>
+    <div class="scroll-hint"><span></span>اسکرول کن</div>
+  </div>
+</section>
+
+<!-- ================= بعد علمی ================= -->
+<section class="sec" id="science">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">بعد علمی</div>
+      <h2>تب‌های بازِ ذهن</h2>
+      <p class="ep-sub">اثر زایگارنیک و خستگی قشر پیش‌پیشانی</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>مرورگر ذهن را ببین</h3>
+      <p>
+        درگیر کردن مغز با صدها حاشیه، مقایسه، اخبار زرد و گفت‌وگوهای ناتمام، مثل
+        <b>برنامه‌های باز در پس‌زمینه گوشی</b>، سوخت شیمیایی قشر پیش‌پیشانی و رمِ سیستم ذهنی را تا شب خالی می‌کند.
+        روی هر تب بزن تا باز شود و اثرش را روی رم ذهنی‌ات ببین.
+      </p>
+
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span>
+          <span class="browser-title">مرورگر ذهن · تب‌های باز</span>
+        </div>
+        <div class="tabs-list" id="tabsList"></div>
+      </div>
+
+      <div class="ram-panel">
+        <div class="ram-row">
+          <div class="ram-head"><span>رم ذهنی اشغال‌شده</span><b id="ramPct">۰٪</b></div>
+          <div class="bar ram-bar"><span id="ramFill"></span></div>
+        </div>
+        <div class="ram-row">
+          <div class="ram-head"><span>ظرفیت قشر پیش‌پیشانی</span><b id="cpuPct">۱۰۰٪</b></div>
+          <div class="bar cpu-bar"><span id="cpuFill"></span></div>
+        </div>
+        <p class="tab-msg" id="tabMsg">هیچ تبی باز نیست. تمام ظرفیت در اختیار توست.</p>
+        <div class="hero-cta" style="margin-top:18px;justify-content:flex-start">
+          <button class="btn ghost" id="closeAllBtn">همه تب‌ها را ببند</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= بیل زرین ================= -->
+<section class="sec" id="shovel">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">تمثیل</div>
+      <h2>بیل زرین مولانا</h2>
+      <p class="ep-sub">«در حَدَث کرده‌ست زرین بیل را»</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>تا کجا بیل را فرو می‌کنی؟</h3>
+      <p>
+        «بیل زرین» همان <b>روح عظیم، عمر و هوشمندی الهی</b> ماست و «حَدَث» به معنای
+        نجاست، فضولات و درگیری‌های پوچ دنیای مادی است. اسلایدر را بکش و ببین بیل طلایی
+        چطور در نجاست فرو می‌رود و کدر می‌شود.
+      </p>
+
+      <div class="shovel-scene">
+        <svg id="shovelSvg" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff3c4"/>
+              <stop offset=".45" stop-color="#f5c26b"/>
+              <stop offset="1" stop-color="#a86a1e"/>
+            </linearGradient>
+            <linearGradient id="filthGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4a3b2a"/>
+              <stop offset="1" stop-color="#1e1710"/>
+            </linearGradient>
+            <radialGradient id="glowGrad">
+              <stop offset="0" stop-color="#f5c26b" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#f5c26b" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="260" fill="#080c17"/>
+          <rect y="190" width="400" height="70" fill="#0a0f1a"/>
+          <path d="M40 252 C80 182 150 172 200 178 C255 172 330 184 366 252 Z" fill="url(#filthGrad)"/>
+          <circle cx="140" cy="216" r="7" fill="#3a2e20" opacity=".85"/>
+          <circle cx="236" cy="226" r="9" fill="#3a2e20" opacity=".7"/>
+          <circle cx="302" cy="210" r="5.5" fill="#3a2e20" opacity=".8"/>
+          <circle cx="96" cy="232" r="4.5" fill="#3a2e20" opacity=".7"/>
+
+          <g id="shovelGroup">
+            <ellipse id="shovelGlow" cx="200" cy="150" rx="96" ry="96" fill="url(#glowGrad)"/>
+            <rect x="196" y="26" width="8" height="88" rx="4" fill="#b98b46"/>
+            <path d="M182 30 h36" stroke="#d8a95e" stroke-width="9" stroke-linecap="round"/>
+            <path d="M178 112 C178 166 200 194 200 194 C200 194 222 166 222 112 Z" fill="url(#goldGrad)" stroke="#8a5a17" stroke-width="1.6"/>
+            <path d="M188 122 C188 156 196 176 199 184" stroke="rgba(255,255,255,.65)" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path id="shovelStain" d="M178 148 C178 166 200 194 200 194 C200 194 222 166 222 148 Z" fill="#3b2d1d" opacity="0"/>
+          </g>
+        </svg>
+      </div>
+
+      <input type="range" id="shovelRange" min="0" max="100" value="0" aria-label="میزان فرو رفتن بیل طلایی در نجاست">
+      <div class="range-labels"><span>بیل در دست</span><span>غرق در نجاست</span></div>
+      <p class="shovel-cap" id="shovelCap"></p>
+      <p class="shovel-cap" style="min-height:auto">درخشش بیل طلایی: <span class="shine-pct" id="shinePct">۱۰۰٪</span></p>
+
+      <div class="verse">
+        <p class="verse-text">«تا گشاید عقدهٔ اشکال را<br>در حَدَث کرده‌ست زرین بیل را»</p>
+        <p class="verse-src">مولانا</p>
+      </div>
+
+      <p style="margin-top:22px">
+        <b>بیل زرین</b> همان روح عظیم، عمر و هوشمندی الهی ماست. اگر آن را در نجاستِ
+        درگیری‌های پوچ فرو کنیم، دیگر نمی‌توانیم عقده‌های واقعی را باز کنیم.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ارزان‌فروشی ================= -->
+<section class="sec" id="trade">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">دام بزرگ</div>
+      <h2>ارزان‌فروشی</h2>
+      <p class="ep-sub">معاملهٔ الماس با آب‌نبات</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>الماس را با آب‌نبات معامله نکن</h3>
+      <p>
+        وقتی هوش و انرژی کائناتی روح را صرف این می‌کنیم که «چطور در بحث حال فلانی را بگیریم»،
+        «چرا دوستم دیر جواب داد» یا «چطور فالوور و تایید جمع کنیم»، در حال
+        <b>بیگاری کشیدن از روح در خدمت نفس</b> هستیم. دکمه را بزن و معامله را ببین.
+      </p>
+
+      <div class="trade-grid">
+        <div class="trade-card" id="diamondCard">
+          <span class="trade-icon">💎</span>
+          <h4>الماس عمر</h4>
+          <p>سرمایه روح · هوش الهی · زمان</p>
+        </div>
+        <div class="trade-arrow">⟷</div>
+        <div class="trade-card" id="candyCard">
+          <span class="trade-icon">🍬</span>
+          <h4>آب‌نبات چندثانیه‌ای</h4>
+          <p>تایید · لایک · حال گرفتن در بحث</p>
+        </div>
+      </div>
+
+      <div class="hero-cta" style="margin-top:22px">
+        <button class="btn primary" id="tradeBtn">معامله کن</button>
+        <button class="btn ghost" id="untradeBtn">همه را برگردان</button>
+      </div>
+
+      <p class="trade-counter">تعداد معامله‌ها: <b id="tradeCount">۰</b></p>
+      <p class="verdict" id="tradeMsg">هنوز معامله‌ای نکردی. الماس‌ها کامل‌اند.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= تمرین ================= -->
+<section class="sec" id="practice">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">تمرین عملی</div>
+      <h2>محاسبهٔ سود و زیان نوری</h2>
+      <p class="ep-sub">قانون هوشمندی انرژی</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>آیا این کار، به الماسی که پایش می‌سوزانم می‌ارزد؟</h3>
+      <p>
+        یک موقعیت را انتخاب کن. ببین چقدر از انرژی روحی‌ات را می‌سوزاند و در عوض چه دستاورد واقعی داری.
+        بعد بیل طلایی توجهت را بیرون بکش.
+      </p>
+
+      <div class="chips" id="situationChips"></div>
+
+      <div class="balance">
+        <div class="meter-row">
+          <div class="meter-label"><span>هزینهٔ انرژی روح</span><b id="costPct">۰٪</b></div>
+          <div class="meter"><span id="costFill"></span></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>دستاورد واقعی</span><b id="gainPct">۰٪</b></div>
+          <div class="meter"><span id="gainFill"></span></div>
+        </div>
+      </div>
+
+      <p class="verdict" id="verdict">اول یک موقعیت را انتخاب کن.</p>
+
+      <div class="hero-cta" style="margin-top:16px;justify-content:flex-start">
+        <button class="btn primary" id="pullBtn" disabled>بیل طلایی را بیرون بکش</button>
+      </div>
+
+      <p class="saved" id="savedMsg">انرژی نجات‌یافته: <b id="savedNum">۰</b> واحد</p>
+
+      <div class="practice">
+        <div class="practice-head">تمرین عملی · تصویرسازی بیل زرین</div>
+        <h4>محافظت از بیل طلایی</h4>
+        <ol>
+          <li><b>تصویرسازی بیل زرین:</b> امروز هر زمان که خواستید وارد یک بحث بی‌ثمر، کل‌کل، غیبت، حسادت یا چرخیدن بی‌هدف در حواشی فضای مجازی شوید، تصویر «بیل طلایی در نجاست» را به یاد بیاورید.</li>
+          <li><b>محاسبه سود و زیان نوری:</b> طبق «قانون هوشمندی انرژی» از خود بپرسید: «آیا دستاورد این کار یا بحث، به انرژی روحی و الماسی که پایش می‌سوزانم می‌ارزد؟» و بلافاصله بیل طلایی توجه خود را از آن حاشیه بیرون بکشید.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= جمع‌بندی ================= -->
+<section class="sec" id="final">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">جمع‌بندی</div>
+      <h2>سه کلیدِ این اپیزود</h2>
+      <p class="ep-sub">آنچه از این اپیزود با خودت می‌بری</p>
+    </div>
+
+    <div class="keys">
+      <div class="key" data-reveal style="--d:.05s"><span class="knum">۰۱</span><h4>تب‌های باز را ببند</h4><p>هر حاشیه و گفت‌وگوی ناتمام، یک تب باز است که رم ذهنت را می‌خورد.</p></div>
+      <div class="key" data-reveal style="--d:.15s"><span class="knum">۰۲</span><h4>بیل را از نجاست بیرون بکش</h4><p>روح، عمر و هوشمندی الهی تو، بیل زرین است؛ آن را در درگیری‌های پوچ فرو نکن.</p></div>
+      <div class="key" data-reveal style="--d:.25s"><span class="knum">۰۳</span><h4>الماس را با آب‌نبات معامله نکن</h4><p>قبل از هر درگیری بپرس: آیا دستاوردش به انرژی‌ای که می‌سوزانم می‌ارزد؟</p></div>
+    </div>
+
+    <div class="card" data-reveal style="--d:.1s;margin-top:30px">
+      <h3 class="card-title"><span class="dot"></span>چک‌لیست امروز</h3>
+      <p>سه قدم عملی این اپیزود را همین امروز تیک بزن.</p>
+      <div class="check-list" id="checkList">
+        <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">امروز وقتی خواستم وارد یک بحث بی‌ثمر شوم، تصویر «بیل طلایی در نجاست» را به یاد آوردم و وارد نشدم.</span></label>
+        <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">قبل از چک کردن فالوور و تایید، از خودم پرسیدم آیا این به انرژی‌ام می‌ارزد.</span></label>
+        <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">یک حاشیهٔ ذهنی را بستم و توجه‌ام را به یک کار واقعی برگرداندم.</span></label>
+      </div>
+      <p class="check-progress" id="checkProgress">۰ از ۳ قدم انجام شده</p>
+    </div>
+
+    <div class="quote" data-reveal style="--d:.15s">
+      «بیل زرین را در نجاست فرو نکن.»
+      <small>سرمایه‌ات روح است؛ آن را برای آب‌نبات‌های چندثانیه‌ای خرج نکن.</small>
+    </div>
+  </div>
+</section>
+
+<footer>اپیزود ۵ · بیل طلایی وسط طویله · ساخته‌شده برای یادگیری عمیق‌تر</footer>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+try {
+  var fa=['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  function toFa(n){return String(n).replace(/\d/g,function(d){return fa[+d];});}
+
+  /* ---------- reveal first ---------- */
+  var revealEls=document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+    },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){obs.observe(el);});
+  }else{revealEls.forEach(function(el){el.classList.add('in');});}
+
+  /* ---------- progress + rail ---------- */
+  var progress=document.getElementById('progress');
+  var railBtns=[].slice.call(document.querySelectorAll('.rail button'));
+  var railSecs=railBtns.map(function(b){return document.querySelector(b.getAttribute('data-scroll'));});
+  var allSecs=[].slice.call(document.querySelectorAll('section[id]'));
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    progress.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+    var pos=window.scrollY+window.innerHeight*0.32,idx=0;
+    allSecs.forEach(function(s,i){if(s.offsetTop<=pos)idx=i;});
+    railBtns.forEach(function(b,i){b.classList.toggle('active',railSecs[i]===allSecs[idx]);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+
+  document.querySelectorAll('[data-scroll]').forEach(function(el){
+    el.addEventListener('click',function(){
+      var t=document.querySelector(el.getAttribute('data-scroll'));
+      if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  /* ================= تب‌های ذهنی ================= */
+  var TAB_DATA=[
+    {id:'argue',label:'بحث و کل‌کل بی‌ثمر',cost:18},
+    {id:'likes',label:'چک کردن لایک و فالوور',cost:12},
+    {id:'news',label:'اخبار زرد و حاشیه',cost:14},
+    {id:'compare',label:'مقایسه با دیگران',cost:20},
+    {id:'unfinished',label:'گفت‌وگوی ناتمام',cost:16},
+    {id:'gossip',label:'غیبت و تحلیل دیگران',cost:15},
+    {id:'scroll',label:'اسکرول بی‌هدف',cost:13}
+  ];
+  var tabsList=document.getElementById('tabsList');
+  var ramFill=document.getElementById('ramFill');
+  var cpuFill=document.getElementById('cpuFill');
+  var ramPct=document.getElementById('ramPct');
+  var cpuPct=document.getElementById('cpuPct');
+  var tabMsg=document.getElementById('tabMsg');
+  var closeAllBtn=document.getElementById('closeAllBtn');
+  var openTabs={};
+
+  TAB_DATA.forEach(function(t){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='tab-btn';
+    b.setAttribute('data-id',t.id);
+    b.innerHTML='<span class="tab-dot"></span><span class="tab-label">'+t.label+'</span><span class="tab-cost">'+toFa(t.cost)+'+</span>';
+    b.addEventListener('click',function(){
+      openTabs[t.id]=!openTabs[t.id];
+      b.classList.toggle('open',openTabs[t.id]);
+      updateTabs();
+    });
+    tabsList.appendChild(b);
+  });
+
+  function updateTabs(){
+    var sum=0;
+    TAB_DATA.forEach(function(t){ if(openTabs[t.id]) sum+=t.cost; });
+    var occupied=Math.min(100,sum);
+    var cpu=Math.max(0,100-occupied);
+    ramFill.style.width=occupied+'%';
+    cpuFill.style.width=cpu+'%';
+    ramPct.textContent=toFa(occupied)+'٪';
+    cpuPct.textContent=toFa(cpu)+'٪';
+    cpuFill.style.background = cpu>60
+      ? 'linear-gradient(90deg,var(--cyan),var(--violet))'
+      : (cpu>30 ? 'linear-gradient(90deg,#f5c26b,#b45309)' : 'linear-gradient(90deg,#fb7185,#be123c)');
+
+    tabMsg.classList.remove('warn','good');
+    if(occupied===0){
+      tabMsg.textContent='هیچ تبی باز نیست. تمام ظرفیت در اختیار توست.';
+      tabMsg.classList.add('good');
+    }else if(occupied<30){
+      tabMsg.textContent='چند تب باز، قابل مدیریت. ولی همین‌ها هم از سوخت ذهن کم می‌کنند.';
+    }else if(occupied<60){
+      tabMsg.textContent='رم ذهنی دارد پر می‌شود. تمرکز و اراده آگاهانه کم‌کم گران می‌شود.';
+    }else if(occupied<85){
+      tabMsg.textContent='قشر پیش‌پیشانی زیر فشار است. زودتر عصبانی می‌شوی و تصمیم‌هایت واکنشی می‌شوند.';
+      tabMsg.classList.add('warn');
+    }else{
+      tabMsg.textContent='سوخت شیمیایی و رم سیستم ذهنی خالی شده. تا شب چیزی برای تمرکز و اراده نمانده — همان خستگیِ قشر پیش‌پیشانی.';
+      tabMsg.classList.add('warn');
+    }
+  }
+  closeAllBtn.addEventListener('click',function(){
+    openTabs={};
+    [].slice.call(tabsList.children).forEach(function(b){b.classList.remove('open');});
+    updateTabs();
+    tabMsg.classList.remove('warn');
+    tabMsg.classList.add('good');
+    tabMsg.textContent='همه تب‌ها بسته شد. این همان آزادسازی بیل طلایی است.';
+  });
+  updateTabs();
+
+  /* ================= بیل زرین ================= */
+  var shovelRange=document.getElementById('shovelRange');
+  var shovelGroup=document.getElementById('shovelGroup');
+  var shovelStain=document.getElementById('shovelStain');
+  var shovelGlow=document.getElementById('shovelGlow');
+  var shovelCap=document.getElementById('shovelCap');
+  var shinePct=document.getElementById('shinePct');
+
+  function updateShovel(){
+    var v=+shovelRange.value;
+    var y=v*0.62;
+    shovelGroup.setAttribute('transform','translate(0,'+y+')');
+    shovelStain.setAttribute('opacity',(v/100)*0.92);
+    shovelGlow.setAttribute('opacity',Math.max(0,1-(v/105)));
+    var shine=Math.max(0,Math.round(100-v*0.9));
+    shinePct.textContent=toFa(shine)+'٪';
+
+    if(v<15){
+      shovelCap.innerHTML='<b>بیل طلایی در دست است،</b> درخشان و آماده. هنوز خودت را به نجاست نفروخته‌ای.';
+    }else if(v<45){
+      shovelCap.innerHTML='<b>بیل کم‌کم به نجاست نزدیک می‌شود.</b> هر درگیری کوچک، یک قدم به طویله نزدیک‌تر.';
+    }else if(v<75){
+      shovelCap.innerHTML='<b>بیل در نجاست فرو رفته.</b> انرژی روح خرج حواشی می‌شود و دستاوردی نمی‌ماند.';
+    }else{
+      shovelCap.innerHTML='<b>بیل طلایی غرق در نجاست.</b> این همان بیگاری کشیدن از روح در خدمت نفس است.';
+    }
+  }
+  shovelRange.addEventListener('input',updateShovel);
+  updateShovel();
+
+  /* ================= معامله ================= */
+  var diamondCard=document.getElementById('diamondCard');
+  var candyCard=document.getElementById('candyCard');
+  var tradeBtn=document.getElementById('tradeBtn');
+  var untradeBtn=document.getElementById('untradeBtn');
+  var tradeCount=document.getElementById('tradeCount');
+  var tradeMsg=document.getElementById('tradeMsg');
+  var trades=0;
+
+  function renderTrade(){
+    tradeCount.textContent=toFa(trades);
+    if(trades===0){
+      diamondCard.style.opacity=1;
+      diamondCard.style.transform='scale(1)';
+      tradeMsg.classList.remove('warn');
+      tradeMsg.textContent='هنوز معامله‌ای نکردی. الماس‌ها کامل‌اند.';
+      return;
+    }
+    var dim=Math.max(0.2,1-trades*0.14);
+    var scale=Math.max(0.65,1-trades*0.04);
+    diamondCard.style.opacity=dim;
+    diamondCard.style.transform='scale('+scale+')';
+    tradeMsg.classList.add('warn');
+    if(trades<=2){
+      tradeMsg.textContent='یک الماس، یک آب‌نبات. معامله انجام شد — و هیچ‌کس سودی نبرد جز نفس.';
+    }else if(trades<=5){
+      tradeMsg.textContent='باز هم معامله. سرمایهٔ روح داری ذوب می‌شود در لذت‌های چندثانیه‌ای.';
+    }else{
+      tradeMsg.textContent='الماس‌ها کم‌رنگ شدند و آب‌نبات‌ها هم فقط چند ثانیه شیرین بودند. این همان ارزان‌فروشی است.';
+    }
+  }
+  tradeBtn.addEventListener('click',function(){
+    trades++;
+    candyCard.classList.remove('pop');
+    void candyCard.offsetWidth;
+    candyCard.classList.add('pop');
+    renderTrade();
+  });
+  untradeBtn.addEventListener('click',function(){
+    trades=0;renderTrade();
+  });
+  renderTrade();
+
+  /* ================= محاسبه سود و زیان ================= */
+  var SITUATIONS=[
+    {id:'s1',label:'بحث و کل‌کل در شبکه اجتماعی',cost:85,gain:10},
+    {id:'s2',label:'غیبت و تحلیل زندگی دیگران',cost:80,gain:5},
+    {id:'s3',label:'چک کردن مکرر فالوور و لایک',cost:60,gain:8},
+    {id:'s4',label:'مقایسهٔ خود با دیگران',cost:90,gain:0},
+    {id:'s5',label:'اسکرول بی‌هدف',cost:70,gain:5},
+    {id:'s6',label:'کل‌کل با یک غریبه',cost:75,gain:3}
+  ];
+  var chipsWrap=document.getElementById('situationChips');
+  var costFill=document.getElementById('costFill');
+  var gainFill=document.getElementById('gainFill');
+  var costPct=document.getElementById('costPct');
+  var gainPct=document.getElementById('gainPct');
+  var verdict=document.getElementById('verdict');
+  var pullBtn=document.getElementById('pullBtn');
+  var savedNum=document.getElementById('savedNum');
+  var savedMsg=document.getElementById('savedMsg');
+  var savedEnergy=0;
+  var selected=null;
+  var doneIds={};
+
+  SITUATIONS.forEach(function(s){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='chip';
+    b.setAttribute('data-id',s.id);
+    b.textContent=s.label;
+    b.addEventListener('click',function(){
+      selected=s;
+      [].slice.call(chipsWrap.children).forEach(function(c){c.classList.remove('active');});
+      b.classList.add('active');
+      showVerdict(s);
+    });
+    chipsWrap.appendChild(b);
+  });
+
+  function showVerdict(s){
+    costFill.style.width=s.cost+'%';
+    gainFill.style.width=s.gain+'%';
+    costPct.textContent=toFa(s.cost)+'٪';
+    gainPct.textContent=toFa(s.gain)+'٪';
+    verdict.classList.remove('warn','good');
+    verdict.classList.add('warn');
+
+    if(s.gain<=5){
+      verdict.innerHTML='هزینهٔ <b>'+toFa(s.cost)+'٪</b> از انرژی روح، در ازای <b>'+toFa(s.gain)+'٪</b> دستاورد. این فروش الماس به قیمت آب‌نبات است.';
+    }else if(s.gain<=10){
+      verdict.innerHTML='هزینهٔ سنگین در برابر دستاوردی ناچیز. آیا این به الماسی که پایش می‌سوزانم می‌ارزد؟';
+    }else{
+      verdict.innerHTML='دستاورد کم و هزینه زیاد. بیل طلایی توجهت را از این حاشیه بیرون بکش.';
+    }
+    pullBtn.disabled=false;
+    pullBtn.textContent='بیل طلایی را بیرون بکش';
+  }
+
+  pullBtn.addEventListener('click',function(){
+    if(!selected)return;
+    savedEnergy+=selected.cost;
+    savedNum.textContent=toFa(savedEnergy);
+    savedMsg.classList.remove('pop');
+    void savedMsg.offsetWidth;
+    savedMsg.classList.add('pop');
+
+    verdict.classList.remove('warn');
+    verdict.classList.add('good');
+    verdict.innerHTML='بیل طلایی بیرون کشیده شد. <b>'+toFa(selected.cost)+' واحد</b> انرژی روح آزاد شد.';
+
+    pullBtn.disabled=true;
+    pullBtn.textContent='بیرون کشیده شد ✓';
+
+    var chip=chipsWrap.querySelector('[data-id="'+selected.id+'"]');
+    if(chip){chip.classList.add('done');}
+  });
+
+  /* ================= چک‌لیست ================= */
+  var checkInputs=[].slice.call(document.querySelectorAll('#checkList input[type=checkbox]'));
+  var checkProgress=document.getElementById('checkProgress');
+  function updateChecks(){
+    var c=checkInputs.filter(function(x){return x.checked;}).length;
+    checkProgress.innerHTML='<b>'+toFa(c)+'</b> از ۳ قدم انجام شده';
+  }
+  checkInputs.forEach(function(x){x.addEventListener('change',updateChecks);});
+  updateChecks();
+
+  onScroll();
+} catch(err) {
+  document.documentElement.classList.remove('js-ready');
+  if(window.console)console.error(err);
+}
+})();
+</script>
+</body>
+</html>
