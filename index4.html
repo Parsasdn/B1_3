@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اپیزود ۶ | سندروم قورباغه پخته شده</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07070f;--ink:#e9eefb;--muted:#93a1bf;--line:rgba(255,255,255,.09);--cyan:#5eead4;--violet:#a78bfa;--gold:#f5c26b;--rose:#fb7185;--amber:#f59e0b;--green:#34d399;--r:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Vazirmatn',system-ui,Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:2;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+ul,ol{padding-inline-start:1.2em}
+b{color:#fff;font-weight:800}
+
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(1200px 700px at 82% -10%,#3a1f14 0%,transparent 62%),radial-gradient(900px 620px at 8% 8%,#2a1f14 0%,transparent 58%),radial-gradient(1000px 800px at 50% 112%,#062a33 0%,transparent 62%),#07070f}
+.bg::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:44px 44px;opacity:.5}
+.progress{position:fixed;top:0;right:0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--amber),var(--gold),var(--cyan));box-shadow:0 0 14px rgba(245,158,11,.6);transition:width .12s linear}
+.rail{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:14px}
+.rail button{width:10px;height:10px;border-radius:50%;padding:0;cursor:pointer;border:1px solid rgba(255,255,255,.3);background:transparent;transition:.3s;position:relative}
+.rail button.active{background:var(--amber);border-color:var(--amber);box-shadow:0 0 12px var(--amber);transform:scale(1.4)}
+.rail button span{position:absolute;left:22px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.7rem;font-weight:600;background:rgba(10,15,28,.95);border:1px solid var(--line);padding:4px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:.3s}
+.rail button:hover span{opacity:1}
+@media(max-width:860px){.rail{display:none}}
+
+.wrap{width:min(1000px,calc(100% - 32px));margin-inline:auto}
+.sec{padding:clamp(50px,8vw,90px) 0;scroll-margin-top:20px}
+.js-ready.reveal-ready [data-reveal]:not(.in){opacity:0;transform:translateY(30px)}
+[data-reveal]{transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+
+.hero{min-height:90svh;display:grid;place-items:center;text-align:center;padding:90px 0 60px}
+.hero-frog{width:110px;height:auto;margin:0 auto 22px;animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 0 24px rgba(245,158,11,.55))}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:7px 16px;background:rgba(255,255,255,.03)}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber)}
+h1{font-size:clamp(1.8rem,6vw,3.4rem);line-height:1.25;font-weight:800;margin:.4em 0 .25em}
+.grad{background:linear-gradient(90deg,var(--amber),#ffd98a 40%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:600px;margin:0 auto;color:var(--muted);font-size:clamp(.94rem,2vw,1.05rem);line-height:2.1}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{font-family:inherit;font-size:.94rem;font-weight:700;cursor:pointer;padding:12px 28px;border-radius:99px;border:1px solid transparent;transition:.3s}
+.btn.primary{background:linear-gradient(90deg,var(--amber),#ffd98a);color:#241503;box-shadow:0 12px 30px -12px rgba(245,158,11,.9)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{background:rgba(255,255,255,.045);border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn:disabled{opacity:.5;cursor:default;transform:none!important}
+.scroll-hint{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--muted);font-size:.78rem}
+.scroll-hint span{display:block;width:22px;height:36px;border:1.6px solid rgba(255,255,255,.25);border-radius:12px;position:relative}
+.scroll-hint span::after{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:7px;border-radius:3px;background:var(--amber);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%,100%{top:7px;opacity:1}60%{top:20px;opacity:0}}
+
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,3.5vw,32px)}
+.card + .card{margin-top:22px}
+.card-title{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-title .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber)}
+.card p{color:var(--muted)}
+.card p b{color:#fff}
+
+.ep-head{text-align:center;margin-bottom:clamp(26px,5vw,46px)}
+.ep-badge{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.08em;padding:6px 16px;border-radius:99px;border:1px solid rgba(245,158,11,.4);color:var(--amber);background:rgba(245,158,11,.08);margin-bottom:14px}
+.ep-head h2{font-size:clamp(1.4rem,4.4vw,2.3rem);font-weight:800;line-height:1.4}
+.ep-sub{color:var(--muted);margin-top:8px;font-size:clamp(.88rem,2vw,1rem)}
+
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;margin:20px 0 6px;background:rgba(255,255,255,.13);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;border:none;background:linear-gradient(135deg,#fff,var(--amber));box-shadow:0 0 0 5px rgba(245,158,11,.15);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;border:none;background:linear-gradient(135deg,#fff,var(--amber));cursor:pointer}
+.range-labels{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted)}
+
+.pot-scene{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);margin-top:20px;background:linear-gradient(180deg,#0a1220,#050810)}
+.pot-scene svg{display:block;width:100%;height:auto}
+.pot-scene.shaking{animation:shake .5s ease-in-out}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-3px)}}
+.temp-readout{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;flex-wrap:wrap}
+.temp-badge{padding:9px 20px;border-radius:99px;font-weight:800;font-size:1.05rem;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.4);color:var(--amber);transition:.3s}
+.temp-badge.hot{background:rgba(251,113,133,.15);border-color:rgba(251,113,133,.5);color:var(--rose)}
+.temp-badge.cool{background:rgba(94,234,212,.13);border-color:rgba(94,234,212,.4);color:var(--cyan)}
+.shock-btn{font-family:inherit;font-size:.84rem;font-weight:700;cursor:pointer;padding:10px 20px;border-radius:99px;border:1px dashed rgba(251,113,133,.5);background:rgba(251,113,133,.08);color:var(--rose);transition:.3s;min-width:240px;text-align:center}
+.shock-btn:hover{background:rgba(251,113,133,.16)}
+.shock-btn.busy{opacity:.55;cursor:wait;pointer-events:none}
+.pot-cap{margin-top:18px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);font-size:.92rem;line-height:1.95;min-height:90px;transition:.3s}
+.pot-cap.warn{border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08);color:#fecdd3}
+.pot-cap.danger{border-color:rgba(251,113,133,.55);background:rgba(190,18,60,.14);color:#fecdd3}
+.pot-cap.good{border-color:rgba(94,234,212,.4);background:rgba(94,234,212,.08);color:#a7f3d0}
+.pot-cap b{color:#fff}
+.bub{animation:bubbleUp 2.4s ease-in-out infinite}
+.bub.b2{animation-delay:.8s}.bub.b3{animation-delay:1.6s}
+@keyframes bubbleUp{0%{transform:translateY(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-70px);opacity:0}}
+
+.room-scene{position:relative;height:240px;border-radius:18px;overflow:hidden;border:1px solid var(--line);margin-top:20px;background:linear-gradient(180deg,#0f1420,#080c15)}
+.room-scene svg{position:absolute;inset:0;width:100%;height:100%}
+.room-smell{position:absolute;inset:0;pointer-events:none;opacity:1;transition:opacity .8s;background:radial-gradient(circle at 50% 60%,rgba(74,222,128,.35),rgba(74,222,128,.08) 40%,transparent 70%)}
+.room-smell.dim{opacity:.08}
+.room-rot{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .8s;background:radial-gradient(circle at 50% 60%,rgba(190,18,60,.55),rgba(190,18,60,.15) 40%,transparent 70%)}
+.room-rot.show{opacity:.85}
+.room-hud{position:absolute;top:12px;right:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hud-chip{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:99px;background:rgba(10,15,28,.85);border:1px solid var(--line);color:var(--muted)}
+.hud-chip b{color:var(--amber);font-weight:800}
+.hud-chip.rot b{color:var(--rose)}
+.day-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.meter-row{margin-top:14px}
+.meter-label{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:600}
+.meter-label b{color:#fff}
+.meter{height:11px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;border:1px solid var(--line)}
+.meter span{display:block;height:100%;width:0;border-radius:99px;transition:width .5s cubic-bezier(.22,1,.36,1),background .4s}
+#realSmellFill{background:linear-gradient(90deg,#be123c,#7f1d1d);width:100%}
+#perceivedFill{background:linear-gradient(90deg,var(--green),var(--cyan))}
+#damageFill{background:linear-gradient(90deg,var(--amber),var(--rose))}
+.room-msg{margin-top:16px;padding:13px 16px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:.92rem;color:var(--muted);line-height:1.9;min-height:70px;transition:.3s}
+.room-msg.warn{border-color:rgba(245,158,11,.4);background:rgba(245,158,11,.08);color:#fde68a}
+.room-msg.danger{border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.08);color:#fecdd3}
+.room-msg.good{border-color:rgba(94,234,212,.4);background:rgba(94,234,212,.08);color:#a7f3d0}
+.room-msg b{color:#fff}
+
+.rot-stage{position:relative;height:300px;border-radius:18px;overflow:hidden;border:1px solid var(--line);margin-top:20px;background:radial-gradient(circle at 50% 80%,#131a33,#070a13);display:grid;place-items:center}
+.rot-stage svg{width:100%;height:100%;display:block}
+
+.exercise-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,4vw,40px);align-items:start;margin-top:22px}
+@media(max-width:640px){.exercise-grid{grid-template-columns:1fr;justify-items:center}}
+.thermo-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.thermo{width:min(64px,17vw);height:auto}
+.thermo-label{font-size:.8rem;color:var(--muted);text-align:center;font-weight:600;line-height:1.5}
+.thermo-label b{color:var(--amber);font-size:.98rem;display:block}
+.step-list{display:flex;flex-direction:column;gap:14px}
+.step{padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.4s}
+.step.done{border-color:rgba(94,234,212,.45);background:rgba(94,234,212,.06)}
+.step-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.step-num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.88rem;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.4);color:var(--amber);flex:none;transition:.3s}
+.step.done .step-num{background:linear-gradient(135deg,var(--cyan),var(--green));border-color:transparent;color:#04121a}
+.step h4{font-size:.94rem;font-weight:800;color:#fff}
+.step p{font-size:.88rem;color:var(--muted);margin-bottom:12px}
+.step-body{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.breath-btn{font-family:inherit;font-size:.84rem;font-weight:700;cursor:pointer;padding:9px 20px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.045);color:var(--ink);transition:.3s}
+.breath-btn:hover{background:rgba(255,255,255,.1)}
+.breath-btn:disabled{opacity:.6;cursor:default}
+.breath-circle-wrap{display:flex;align-items:center;gap:14px;margin-top:4px}
+.breath-circle{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(94,234,212,.9),rgba(94,234,212,.35));box-shadow:0 0 22px -4px rgba(94,234,212,.8);transition:transform 1s ease-in-out;display:grid;place-items:center;font-size:.74rem;font-weight:800;color:#04121a}
+.breath-circle.inhale{transform:scale(1.45)}
+.breath-text{font-size:.84rem;color:var(--muted);font-weight:600;min-width:60px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;padding:8px 15px;border-radius:99px;color:var(--ink);background:rgba(255,255,255,.045);border:1px solid var(--line);transition:.3s}
+.chip:hover{background:rgba(255,255,255,.1)}
+.chip.active{background:rgba(245,158,11,.16);border-color:var(--amber);color:var(--amber);box-shadow:0 0 16px -6px var(--amber)}
+.commit-input{flex:1;min-width:180px;font-family:inherit;font-size:.88rem;padding:10px 14px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);transition:.3s}
+.commit-input:focus{outline:none;border-color:rgba(94,234,212,.5);background:rgba(94,234,212,.05)}
+.commit-input::placeholder{color:rgba(147,161,191,.65)}
+.exercise-result{margin-top:20px;padding:18px 20px;border-radius:15px;border:1px solid rgba(94,234,212,.4);background:rgba(94,234,212,.08);color:#a7f3d0;font-size:.92rem;line-height:1.9;text-align:center;display:none}
+.exercise-result.show{display:block;animation:popIn .5s cubic-bezier(.22,1,.36,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.exercise-result b{color:#fff}
+
+.verse{margin-top:22px;padding:clamp(22px,4vw,38px) 18px;border-radius:20px;text-align:center;border:1px solid rgba(245,194,107,.3);background:linear-gradient(180deg,rgba(245,194,107,.09),rgba(245,194,107,.02))}
+.verse-text{font-size:clamp(1rem,3vw,1.35rem);font-weight:700;line-height:2.2;color:#fff}
+.verse-src{font-size:.8rem;color:var(--gold);margin-top:10px;font-weight:600}
+.duck-lake{display:flex;justify-content:center;gap:clamp(16px,4vw,50px);margin-top:22px;flex-wrap:wrap}
+.duck-item{text-align:center;font-size:.82rem;color:var(--muted)}
+.duck-item svg{display:block;margin:0 auto 6px;width:72px;height:auto}
+.duck-item b{display:block;color:#fff;font-size:.86rem;margin-top:2px}
+
+.practice{margin-top:22px;border-radius:var(--r);padding:clamp(18px,3.5vw,28px);border:1px dashed rgba(245,194,107,.4);background:linear-gradient(180deg,rgba(245,194,107,.075),rgba(245,194,107,.02))}
+.practice-head{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.05em;color:var(--gold);border:1px solid rgba(245,194,107,.4);background:rgba(245,194,107,.1);border-radius:99px;padding:4px 14px;margin-bottom:14px}
+.practice h4{font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff}
+.practice li{color:var(--muted);margin-bottom:9px;font-size:.92rem}
+.practice li b{color:var(--gold)}
+
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:26px}
+.key{padding:22px 20px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));transition:.4s}
+.key:hover{transform:translateY(-4px);border-color:rgba(245,158,11,.35)}
+.key .knum{font-size:1.7rem;font-weight:800;line-height:1;background:linear-gradient(180deg,var(--amber),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px;display:block}
+.key h4{font-size:.94rem;font-weight:800;margin-bottom:6px;color:#fff}
+.key p{font-size:.85rem;color:var(--muted)}
+
+.check-list{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.check-item{display:flex;align-items:center;gap:12px;cursor:pointer;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.3s;font-size:.92rem}
+.check-item:hover{background:rgba(255,255,255,.06)}
+.check-item input{display:none}
+.check-item .box{width:22px;height:22px;border-radius:7px;flex:none;border:2px solid rgba(255,255,255,.22);position:relative;transition:.3s}
+.check-item input:checked ~ .box{background:linear-gradient(135deg,var(--amber),var(--cyan));border-color:transparent;box-shadow:0 0 16px -4px var(--amber)}
+.check-item input:checked ~ .box::after{content:'';position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #241503;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.check-item input:checked ~ .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(245,158,11,.5)}
+.check-progress{font-size:.84rem;color:var(--muted);margin-top:16px;text-align:center}
+.check-progress b{color:var(--amber)}
+
+.quote{text-align:center;padding:clamp(26px,5vw,50px) 18px;font-size:clamp(1rem,2.8vw,1.3rem);font-weight:700;line-height:2.1;color:#fff}
+.quote::before,.quote::after{content:'';display:block;width:60px;height:2px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--amber),transparent)}
+.quote::before{margin-bottom:22px}.quote::after{margin-top:22px}
+.quote small{display:block;font-size:.8rem;color:var(--muted);font-weight:400;margin-top:12px}
+
+footer{text-align:center;padding:40px 20px 55px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:640px){.hero-frog{width:88px}.room-scene{height:200px}.rot-stage{height:260px}.shock-btn{min-width:190px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}html{scroll-behavior:auto}}
+</style>
+<script>
+document.documentElement.classList.add('js-ready');
+</script>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="progress" id="progress"></div>
+
+<nav class="rail" id="rail" aria-label="ناوبری">
+  <button data-scroll="#hero" class="active" aria-label="شروع"><span>شروع</span></button>
+  <button data-scroll="#frog" aria-label="تمثیل"><span>قورباغه پخته</span></button>
+  <button data-scroll="#room" aria-label="بعد علمی"><span>اتاق بی‌اکسیژن</span></button>
+  <button data-scroll="#rot" aria-label="بعد عرفانی"><span>پوشاندن تعفن</span></button>
+  <button data-scroll="#molana" aria-label="مولانا"><span>پیام مولانا</span></button>
+  <button data-scroll="#exercise" aria-label="تمرین"><span>دماسنج آگاهی</span></button>
+  <button data-scroll="#final" aria-label="جمع‌بندی"><span>جمع‌بندی</span></button>
+</nav>
+
+<main>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <svg class="hero-frog" viewBox="0 0 120 100" aria-hidden="true">
+      <ellipse cx="60" cy="72" rx="38" ry="22" fill="#7cc26a"/>
+      <circle cx="44" cy="46" r="13" fill="#7cc26a"/>
+      <circle cx="76" cy="46" r="13" fill="#7cc26a"/>
+      <circle cx="44" cy="46" r="6" fill="#0a1a0a"/>
+      <circle cx="76" cy="46" r="6" fill="#0a1a0a"/>
+      <circle cx="42" cy="44" r="2.2" fill="#fff"/>
+      <circle cx="74" cy="44" r="2.2" fill="#fff"/>
+      <path d="M36 76 Q60 90 84 76" stroke="#0a1a0a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="30" cy="88" rx="10" ry="5" fill="#7cc26a"/>
+      <ellipse cx="90" cy="88" rx="10" ry="5" fill="#7cc26a"/>
+    </svg>
+    <p class="eyebrow">اپیزود ۰۶ · کمپین بیدارباش</p>
+    <h1>سندروم<br><span class="grad">قورباغه پخته شده</span></h1>
+    <p class="lead">استرس و فشار وقتی قطره‌قطره وارد می‌شوند، انسان به جای فرار، تمام انرژی‌اش را صرف سازگاری با قابلمه می‌کند. این اپیزود دربارهٔ دیدن همان قابلمه است.</p>
+    <div class="hero-cta">
+      <button class="btn primary" data-scroll="#frog">شروع اپیزود</button>
+      <button class="btn ghost" data-scroll="#exercise">دماسنج آگاهی</button>
+    </div>
+    <div class="scroll-hint"><span></span>اسکرول کن</div>
+  </div>
+</section>
+
+<section class="sec" id="frog">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">تمثیل محوری</div>
+      <h2>قورباغه پخته شده</h2>
+      <p class="ep-sub">چرا انسان به جای فرار، با قابلمه سازگار می‌شود؟</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>قابلمه را گرم کن</h3>
+      <p>سیستم عصبی در برابر <b>شوک ناگهانی</b> واکنش سریع نشان می‌دهد، اما وقتی استرس <b>تدریجی</b> وارد می‌شود، انسان به جای نجات خود، انرژی‌اش را صرف «سازگاری با وضعیت سمی» می‌کند. اسلایدر را بکش و ببین.</p>
+
+      <div class="pot-scene" id="potScene">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="potGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3a3a4a"/><stop offset=".5" stop-color="#22222e"/><stop offset="1" stop-color="#15151c"/>
+            </linearGradient>
+            <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop id="waterStop1" offset="0" stop-color="#4a90d9"/>
+              <stop id="waterStop2" offset="1" stop-color="#3a6ba8"/>
+            </linearGradient>
+            <radialGradient id="flameGrad">
+              <stop offset="0" stop-color="#ffd98a"/><stop offset=".5" stop-color="#f59e0b"/><stop offset="1" stop-color="#b91c1c" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <ellipse cx="200" cy="278" rx="90" ry="18" fill="url(#flameGrad)" opacity=".8"/>
+          <path d="M120 180 Q120 260 200 262 Q280 260 280 180 Z" fill="url(#potGrad)" stroke="#1a1a24" stroke-width="2"/>
+          <ellipse cx="200" cy="180" rx="80" ry="12" fill="#1f1f2a" stroke="#2a2a38" stroke-width="1.5"/>
+          <path d="M124 200 Q124 256 200 258 Q276 256 276 200 Z" fill="url(#waterGrad)"/>
+          <ellipse cx="200" cy="200" rx="76" ry="10" fill="url(#waterGrad)" opacity=".95"/>
+          <g id="frog">
+            <ellipse cx="200" cy="238" rx="26" ry="16" fill="#7cc26a"/>
+            <circle cx="188" cy="220" r="9" fill="#7cc26a"/>
+            <circle cx="212" cy="220" r="9" fill="#7cc26a"/>
+            <circle cx="188" cy="220" r="4" fill="#0a1a0a"/>
+            <circle cx="212" cy="220" r="4" fill="#0a1a0a"/>
+            <circle cx="187" cy="219" r="1.5" fill="#fff"/>
+            <circle cx="211" cy="219" r="1.5" fill="#fff"/>
+            <path d="M186 240 Q200 248 214 240" stroke="#0a1a0a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          </g>
+          <g id="bubbles" opacity="0">
+            <circle class="bub" cx="160" cy="230" r="3" fill="#fff" opacity=".7"/>
+            <circle class="bub b2" cx="210" cy="240" r="2.5" fill="#fff" opacity=".6"/>
+            <circle class="bub b3" cx="240" cy="225" r="3.5" fill="#fff" opacity=".6"/>
+          </g>
+          <g id="tempIcon">
+            <rect x="330" y="100" width="14" height="90" rx="7" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+            <rect id="tempFill" x="333" y="186" width="8" height="0" rx="4" fill="#4a90d9"/>
+            <circle cx="337" cy="195" r="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+            <circle id="tempBulb" cx="337" cy="195" r="8" fill="#4a90d9"/>
+          </g>
+        </svg>
+      </div>
+
+      <input type="range" id="tempRange" min="20" max="100" value="20" aria-label="دمای قابلمه">
+      <div class="range-labels"><span>۲۰ درجه · راحت</span><span>۱۰۰ درجه · پخته</span></div>
+
+      <div class="temp-readout">
+        <div class="temp-badge cool" id="tempBadge">۲۰ درجه</div>
+        <button type="button" class="shock-btn" id="shockBtn">شوک ناگهانی را امتحان کن</button>
+      </div>
+
+      <p class="pot-cap" id="potCap"></p>
+
+      <p style="margin-top:18px"><b>نکته کلیدی:</b> شوک ناگهانی سیستم هشدار را فعال می‌کند؛ تدریجی بودن آن را خاموش می‌کند. بیشتر بدبختی‌های ما شوک نبوده‌اند؛ گرمایش تدریجی بوده‌اند.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="room">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">بعد علمی</div>
+      <h2>عادت‌وارگی عصبی و اتاق بی‌اکسیژن</h2>
+      <p class="ep-sub">مغز، بوی بد را فیلتر می‌کند — نه اینکه از بین ببرد</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>هر روز در اتاق بمان</h3>
+      <p>مغز برای صرفه‌جویی در انرژی، محرک‌های دائمی (مثل بوی بد اتاق بسته یا استرس مزمن محیط کار) را پس از مدتی از خودآگاه <b>فیلتر می‌کند</b>. در نتیجه متوجه نمی‌شوی بدنت در محیط مسموم در حال فرسایش است.</p>
+
+      <div class="room-scene">
+        <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="260" fill="#0a0f1a"/>
+          <rect x="20" y="30" width="60" height="40" fill="#1a2030"/>
+          <rect x="320" y="30" width="60" height="40" fill="#1a2030"/>
+          <path d="M20 30 L80 70 M80 30 L20 70" stroke="#2a3345" stroke-width="2"/>
+          <path d="M320 30 L380 70 M380 30 L320 70" stroke="#2a3345" stroke-width="2"/>
+          <rect y="200" width="400" height="60" fill="#0d1320"/>
+          <circle cx="200" cy="140" r="22" fill="#3a4a5a"/>
+          <path d="M200 162 L200 210 M200 180 L180 195 M200 180 L220 195 M200 210 L185 230 M200 210 L215 230" stroke="#3a4a5a" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <circle cx="200" cy="132" r="11" fill="#4a5a6a"/>
+        </svg>
+        <div class="room-smell" id="roomSmell"></div>
+        <div class="room-rot" id="roomRot"></div>
+        <div class="room-hud">
+          <span class="hud-chip">روز: <b id="hudDay">۰</b></span>
+          <span class="hud-chip rot">بوی واقعی: <b>۱۰۰٪</b></span>
+          <span class="hud-chip">بوی حس‌شده: <b id="hudPerceived">۱۰۰٪</b></span>
+        </div>
+      </div>
+
+      <div class="day-actions">
+        <button class="btn primary" id="stayBtn">یک روز دیگر در اتاق بمان</button>
+        <button class="btn ghost" id="leaveBtn">از اتاق بیرون بیا</button>
+      </div>
+
+      <div class="meter-row">
+        <div class="meter-label"><span>بوی واقعی (تعفن)</span><b>۱۰۰٪</b></div>
+        <div class="meter"><span id="realSmellFill"></span></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>بوی حس‌شده (خودآگاه)</span><b id="perceivedPct">۱۰۰٪</b></div>
+        <div class="meter"><span id="perceivedFill"></span></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>فرسایش بدن و سیستم عصبی</span><b id="damagePct">۰٪</b></div>
+        <div class="meter"><span id="damageFill"></span></div>
+      </div>
+
+      <p class="room-msg" id="roomMsg">اتاق پر از بوی تعفن است و تو هم حسش می‌کنی. اولین روز، همه چیز را می‌بینی.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rot">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">بعد عرفانی</div>
+      <h2>پوشاندن تعفن با انباشتگی جدید</h2>
+      <p class="ep-sub">سرگرمی و دوپامین مفت، تعفن را نمی‌پوشاند</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>یک لایه دیگر روی تعفن</h3>
+      <p>انسان غافل به جای پاکسازی ریشه، برای اینکه بوی تعفنِ کینه و ترس و بی‌هدفی را حس نکند، با سرگرمی‌های کاذب و دوپامین مفت، خودش را <b>بی‌حس‌تر</b> می‌کند. هر لایه جدید، تعفن را عمیق‌تر می‌کند.</p>
+
+      <div class="rot-stage">
+        <svg viewBox="0 0 200 280" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="jarGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="rgba(255,255,255,.05)"/><stop offset="1" stop-color="rgba(255,255,255,.015)"/>
+            </linearGradient>
+            <linearGradient id="rotGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4a6b3a"/><stop offset=".5" stop-color="#2d3f22"/><stop offset="1" stop-color="#1a2412"/>
+            </linearGradient>
+          </defs>
+          <rect x="30" y="20" width="140" height="240" rx="22" fill="url(#jarGrad)" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+          <clipPath id="jarClip"><rect x="32" y="22" width="136" height="236" rx="20"/></clipPath>
+          <g clip-path="url(#jarClip)">
+            <rect id="rotRect" x="32" y="258" width="136" height="0" fill="url(#rotGrad)"/>
+            <g id="distractionLayers"></g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="day-actions" style="margin-top:18px">
+        <button class="btn primary" id="addDistractionBtn">یک سرگرمی/مصرف جدید اضافه کن</button>
+        <button class="btn ghost" id="resetRotBtn">شروع دوباره</button>
+      </div>
+
+      <div class="meter-row">
+        <div class="meter-label"><span>عمق تعفن واقعی</span><b id="rotPct">۱۲٪</b></div>
+        <div class="meter"><span id="rotFill" style="background:linear-gradient(90deg,#4a6b3a,#7cc26a)"></span></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>لایه‌های پوشش (سرگرمی)</span><b id="coverPct">۰٪</b></div>
+        <div class="meter"><span id="coverFill" style="background:linear-gradient(90deg,var(--violet),var(--cyan))"></span></div>
+      </div>
+
+      <p class="room-msg" id="rotMsg">هنوز لایه‌ای روی تعفن نگذاشتی. تعفن همان‌جاست، ولی لااقل می‌بینی‌اش.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="molana">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">پیام مولانا</div>
+      <h2>سفر از دوغ گندیده به اقیانوس</h2>
+      <p class="ep-sub">خداوند به روح تو بالِ پرواز داده</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <p>مولانا عادت کردن به لذت‌های حقیر و دنیای ۱ درصدی را به راضی شدن به <b>«دوغ گندیده و آبِ ته چاه»</b> تشبیه می‌کند و یادآوری می‌کند که خدا به روح تو بالِ پرواز داده تا از این بیابانِ تکرار خارج شوی.</p>
+
+      <div class="duck-lake">
+        <div class="duck-item">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <ellipse cx="40" cy="68" rx="34" ry="6" fill="#2a1f14" opacity=".6"/>
+            <path d="M10 60 Q40 52 70 60 Q40 70 10 60 Z" fill="#4a3b1e"/>
+            <ellipse cx="40" cy="48" rx="20" ry="12" fill="#d8c9a0"/>
+            <circle cx="30" cy="40" r="7" fill="#d8c9a0"/>
+            <circle cx="28" cy="39" r="2" fill="#0a0a0a"/>
+            <path d="M23 42 L17 42" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <b>دوغ گندیده</b>
+          راضی شدن به کم
+        </div>
+        <div class="duck-item">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <ellipse cx="40" cy="72" rx="38" ry="4" fill="#0a2a3a"/>
+            <path d="M2 62 Q20 56 40 62 Q60 68 78 62 Q60 74 40 74 Q20 74 2 62 Z" fill="#1a4a6a"/>
+            <path d="M14 58 Q20 52 28 56" stroke="#5eead4" stroke-width="1.5" fill="none" opacity=".6"/>
+            <path d="M50 56 Q56 50 64 54" stroke="#5eead4" stroke-width="1.5" fill="none" opacity=".6"/>
+            <ellipse cx="40" cy="48" rx="20" ry="12" fill="#f0f9ff"/>
+            <circle cx="30" cy="40" r="7" fill="#f0f9ff"/>
+            <circle cx="28" cy="39" r="2" fill="#0a0a0a"/>
+            <path d="M23 42 L17 42" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <b>اقیانوس</b>
+          روحِ پرواز
+        </div>
+      </div>
+
+      <div class="verse">
+        <p class="verse-text">«به دوغ گنده و آب چه و بیابان‌ها / حیات خویش به بیهوده چند فرسایید؟<br>خدای پر شما را ز جهد ساخته است / چو زنده‌اید بجنبید و جهد بنمایید»</p>
+        <p class="verse-src"> مولانا</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="exercise">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">تمرین عملی</div>
+      <h2>تکنیک دماسنج آگاهی</h2>
+      <p class="ep-sub">سه قدم برای پایین آوردن دما</p>
+    </div>
+
+    <div class="card" data-reveal>
+      <h3 class="card-title"><span class="dot"></span>از قابلمه بیرون بیا</h3>
+      <p>سه قدم را انجام بده تا دماسنج از «خطر» به «هوشیار» برگردد.</p>
+
+      <div class="exercise-grid">
+        <div class="thermo-wrap">
+          <svg class="thermo" viewBox="0 0 80 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="thermoGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fb7185"/><stop offset=".5" stop-color="#f59e0b"/><stop offset="1" stop-color="#5eead4"/>
+              </linearGradient>
+            </defs>
+            <rect x="30" y="20" width="20" height="230" rx="10" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+            <rect id="thermoFill" x="35" y="247" width="10" height="0" rx="5" fill="url(#thermoGrad)"/>
+            <circle cx="40" cy="260" r="20" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+            <circle id="thermoBulb" cx="40" cy="260" r="15" fill="#fb7185"/>
+          </svg>
+          <p class="thermo-label">دمای سازگاری<br><b id="thermoPct">۱۰۰٪</b></p>
+        </div>
+
+        <div class="step-list">
+          <div class="step" id="step1">
+            <div class="step-head"><div class="step-num">۱</div><h4>خروج موقت از قابلمه</h4></div>
+            <p>۱۰ ثانیه تمام ورودی‌ها را قطع کن. فقط نفس بکش و از بیرون به سبک زندگی‌ات نگاه کن.</p>
+            <div class="step-body">
+              <button type="button" class="breath-btn" id="breathBtn">شروع سکوت</button>
+              <div class="breath-circle-wrap" id="breathWrap" style="display:none">
+                <div class="breath-circle" id="breathCircle">نفس</div>
+                <span class="breath-text" id="breathText">۱۰</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step" id="step2">
+            <div class="step-head"><div class="step-num">۲</div><h4>شناسایی یک عادتِ سمیِ عادی‌شده</h4></div>
+            <p>کدام وضعیت نادرست در طول ماه‌ها یا سال‌ها برایت «طبیعی» شده است؟</p>
+            <div class="chips" id="habitChips">
+              <button type="button" class="chip">خستگی مزمن صبحگاهی</button>
+              <button type="button" class="chip">تحمل یک معاشرت سمی</button>
+              <button type="button" class="chip">چک کردن وسواسی اخبار</button>
+              <button type="button" class="chip">بی‌هدفی روزانه</button>
+              <button type="button" class="chip">مقایسه دائمی</button>
+              <button type="button" class="chip">شغلی که دوستش ندارم</button>
+            </div>
+          </div>
+
+          <div class="step" id="step3">
+            <div class="step-head"><div class="step-num">۳</div><h4>شکستن نرمال‌سازی</h4></div>
+            <p>با خودت بگو: «این وضعیت طبیعیِ روح من نیست.» و امروز یک اقدام کوچک انجام بده.</p>
+            <div class="step-body">
+              <input type="text" class="commit-input" id="commitInput" placeholder="مثلاً پنجره را باز می‌کنم، یک تماس سمی را قطع می‌کنم…">
+              <button type="button" class="btn primary" id="commitStepBtn" disabled>تعهد را ثبت کن</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-result" id="exerciseResult">
+        <b>✓ دماسنج پایین آمد.</b><br>
+        از قابلمه بیرون آمدی، عادت سمی را دیدی، و نرمال‌سازی را شکستی. حالا تو دیگر قورباغهٔ خواب نیستی.
+      </div>
+
+      <div class="practice" style="margin-top:22px">
+        <div class="practice-head">تمرین عملی · قدم امروز</div>
+        <h4>از قابلمه بیرون بیا</h4>
+        <ol>
+          <li><b>خروج موقت:</b> ۵ دقیقه تمام ورودی‌ها را قطع کن و از بیرون به سبک زندگی‌ات نگاه کن.</li>
+          <li><b>شناسایی عادتِ سمیِ عادی‌شده:</b> یک وضعیت نادرست که برایت «طبیعی» شده را نام ببر.</li>
+          <li><b>شکستن نرمال‌سازی:</b> بگو «این طبیعیِ روح من نیست» و یک اقدام کوچک انجام بده.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="final">
+  <div class="wrap">
+    <div class="ep-head" data-reveal>
+      <div class="ep-badge">جمع‌بندی</div>
+      <h2>سه کلیدِ این اپیزود</h2>
+      <p class="ep-sub">آنچه از این اپیزود با خودت می‌بری</p>
+    </div>
+
+    <div class="keys">
+      <div class="key" data-reveal><span class="knum">۰۱</span><h4>قابلمه را ببین</h4><p>خطر همیشه شوک نیست؛ گاهی گرمایش تدریجی است که تو را بی‌حس می‌کند.</p></div>
+      <div class="key" data-reveal><span class="knum">۰۲</span><h4>بو را فیلتر نکن</h4><p>مغز عادت می‌کند؛ هر چند وقت از اتاق بیرون بیا و از نو بو بکش.</p></div>
+      <div class="key" data-reveal><span class="knum">۰۳</span><h4>روی تعفن لایه نگذار</h4><p>سرگرمی و دوپامین مفت ریشه را درمان نمی‌کند. پاک‌سازی لازم است.</p></div>
+    </div>
+
+    <div class="card" data-reveal style="margin-top:26px">
+      <h3 class="card-title"><span class="dot"></span>چک‌لیست امروز</h3>
+      <p>سه قدم عملی این اپیزود را همین امروز تیک بزن.</p>
+      <div class="check-list" id="checkList">
+        <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">۵ دقیقه ورودی‌ها را قطع کردم و از بیرون به سبک زندگی‌ام نگاه کردم.</span></label>
+        <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">یک عادت سمی که برایم «طبیعی» شده بود را شناسایی کردم.</span></label>
+        <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">با خودم اقرار کردم این وضعیت طبیعی روح من نیست و یک اقدام کوچک انجام دادم.</span></label>
+      </div>
+      <p class="check-progress" id="checkProgress">۰ از ۳ قدم انجام شده</p>
+    </div>
+
+    <div class="quote" data-reveal>
+      «قورباغه پخته، خودش را بیدار نمی‌کند. تو باید از قابلمه بیرون بیایی.»
+      <small>قابلمه را ببین، دما را حس کن، و قدم اول را بردار.</small>
+    </div>
+  </div>
+</section>
+
+<footer>اپیزود ۶ · سندروم قورباغه پخته شده · ساخته‌شده برای یادگیری عمیق‌تر</footer>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+var fa=['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+function toFa(n){return String(n).replace(/\d/g,function(d){return fa[+d];});}
+
+/* ========== reveal ایمن ========== */
+try{
+  var revealEls=document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+    },{threshold:0.1,rootMargin:'0px 0px -5% 0px'});
+    revealEls.forEach(function(el){obs.observe(el);});
+    document.documentElement.classList.add('reveal-ready');
+  }
+}catch(e){}
+
+/* ========== progress + rail ========== */
+try{
+  var progress=document.getElementById('progress');
+  var railBtns=[].slice.call(document.querySelectorAll('.rail button'));
+  var railSecs=railBtns.map(function(b){return document.querySelector(b.getAttribute('data-scroll'));});
+  var allSecs=[].slice.call(document.querySelectorAll('section[id]'));
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    progress.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+    var pos=window.scrollY+window.innerHeight*0.32,idx=0;
+    allSecs.forEach(function(s,i){if(s.offsetTop<=pos)idx=i;});
+    railBtns.forEach(function(b,i){b.classList.toggle('active',railSecs[i]===allSecs[idx]);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+}catch(e){}
+
+/* ========== smooth scroll ========== */
+document.querySelectorAll('[data-scroll]').forEach(function(el){
+  el.addEventListener('click',function(){
+    var t=document.querySelector(el.getAttribute('data-scroll'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+/* ========== قورباغه/قابلمه ========== */
+try{
+  var tempRange=document.getElementById('tempRange');
+  var tempBadge=document.getElementById('tempBadge');
+  var potCap=document.getElementById('potCap');
+  var waterStop1=document.getElementById('waterStop1');
+  var waterStop2=document.getElementById('waterStop2');
+  var tempFill=document.getElementById('tempFill');
+  var tempBulb=document.getElementById('tempBulb');
+  var bubbles=document.getElementById('bubbles');
+  var frog=document.getElementById('frog');
+  var potScene=document.getElementById('potScene');
+  var shockBtn=document.getElementById('shockBtn');
+
+  function lerp(a,b,t){return a+(b-a)*t;}
+
+  function updatePot(){
+    var t=+tempRange.value, ratio=(t-20)/80;
+    tempBadge.textContent=toFa(t)+' درجه';
+    tempBadge.classList.remove('cool','hot');
+    if(t<40)tempBadge.classList.add('cool');
+    else if(t>75)tempBadge.classList.add('hot');
+
+    var r=Math.round(lerp(74,217,ratio)), g=Math.round(lerp(144,74,ratio)), b=Math.round(lerp(217,74,ratio));
+    waterStop1.setAttribute('stop-color','rgb('+r+','+g+','+b+')');
+    var r2=Math.round(lerp(58,140,ratio)), g2=Math.round(lerp(107,30,ratio)), b2=Math.round(lerp(168,30,ratio));
+    waterStop2.setAttribute('stop-color','rgb('+r2+','+g2+','+b2+')');
+
+    var fillH=ratio*215;
+    tempFill.setAttribute('y',245-fillH);
+    tempFill.setAttribute('height',fillH);
+    tempFill.setAttribute('fill','rgb('+r+','+g+','+b+')');
+    tempBulb.setAttribute('fill','rgb('+r+','+g+','+b+')');
+    bubbles.setAttribute('opacity',t>60?(t-60)/40:0);
+
+    var frogColor='rgb('+Math.round(lerp(124,220,ratio))+','+Math.round(lerp(194,90,ratio))+','+Math.round(lerp(106,60,ratio))+')';
+    frog.querySelectorAll('ellipse,circle').forEach(function(c){
+      var f=c.getAttribute('fill');
+      if(f==='#7cc26a'||c.getAttribute('data-frog')==='1'){
+        c.setAttribute('data-frog','1');
+        c.setAttribute('fill',frogColor);
+      }
+    });
+
+    potCap.classList.remove('good','warn','danger');
+    if(t<40){potCap.classList.add('good');potCap.innerHTML='<b>'+toFa(t)+' درجه — آب خنک است.</b> اگر همین‌جا آب را عوض کنی، می‌پرد و فرار می‌کند. مشکل، خودِ آب سرد نیست؛ «سازگاری» است.';}
+    else if(t<60){potCap.classList.add('good');potCap.innerHTML='<b>'+toFa(t)+' درجه — کمی گرم‌تر.</b> تغییر هنوز کوچک است. سیستم هشدار می‌گوید «مهم نیست».';}
+    else if(t<75){potCap.classList.add('warn');potCap.innerHTML='<b>'+toFa(t)+' درجه — گرما حس می‌شود، ولی قورباغه می‌ماند.</b> سیستم عصبی کم‌کم عادت می‌کند. استرس مزمن و خستگی صبحگاهی «طبیعی» می‌شوند.';}
+    else if(t<90){potCap.classList.add('danger');potCap.innerHTML='<b>'+toFa(t)+' درجه — آب دارد می‌جوشد.</b> قورباغه هنوز می‌ماند، اما دیگر انرژی پریدن ندارد. این همان سندروم قورباغه پخته است.';}
+    else{potCap.classList.add('danger');potCap.innerHTML='<b>'+toFa(t)+' درجه — پخته شد.</b> اگر شوک بود، از اول می‌پرید. اما گرمایش تدریجی، هشدار را خاموش کرد.';}
+  }
+  tempRange.addEventListener('input',updatePot);
+  updatePot();
+
+  /* ===== شوک ناگهانی با JS — بدون disabled تا scroll جابه‌جا نشود ===== */
+  var shockBusy=false;
+  shockBtn.addEventListener('click',function(e){
+    e.preventDefault();
+    if(shockBusy)return;
+    shockBusy=true;
+    shockBtn.classList.add('busy');
+    potScene.classList.add('shaking');
+
+    var startTime=null;
+    var duration=1400;
+    var startTemp=+tempRange.value;
+
+    function frame(ts){
+      if(startTime===null)startTime=ts;
+      var elapsed=ts-startTime;
+      var p=Math.min(elapsed/duration,1);
+      var eased=p<0.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+      var y=-200*eased;
+      var rot=(p*15).toFixed(1);
+      var op=(1-eased).toFixed(2);
+      frog.setAttribute('transform','translate(0 '+y.toFixed(1)+') rotate('+rot+' 200 238)');
+      frog.style.opacity=op;
+      if(p<1){requestAnimationFrame(frame);}
+      else{
+        setTimeout(function(){
+          frog.removeAttribute('transform');
+          frog.style.opacity='';
+          potScene.classList.remove('shaking');
+          shockBtn.classList.remove('busy');
+          potCap.classList.remove('good','warn','danger');
+          potCap.classList.add('good');
+          potCap.innerHTML='<b>شوک ناگهانی: قورباغه فرار کرد!</b> اگر آب یک‌دفعه از ۲۰ به '+toFa(startTemp)+' برسد، سیستم هشدار فعال می‌شود و می‌پرد. مشکل، گرمایش تدریجی است — نه گرما.';
+          shockBusy=false;
+        },200);
+      }
+    }
+    requestAnimationFrame(frame);
+  });
+}catch(e){}
+
+/* ========== اتاق بی‌اکسیژن ========== */
+try{
+  var stayBtn=document.getElementById('stayBtn');
+  var leaveBtn=document.getElementById('leaveBtn');
+  var hudDay=document.getElementById('hudDay');
+  var hudPerceived=document.getElementById('hudPerceived');
+  var perceivedPct=document.getElementById('perceivedPct');
+  var damagePct=document.getElementById('damagePct');
+  var perceivedFill=document.getElementById('perceivedFill');
+  var damageFill=document.getElementById('damageFill');
+  var roomMsg=document.getElementById('roomMsg');
+  var roomSmell=document.getElementById('roomSmell');
+  var roomRot=document.getElementById('roomRot');
+  var days=0,perceived=100,damage=0;
+
+  function updateRoom(){
+    hudDay.textContent=toFa(days);
+    hudPerceived.textContent=toFa(perceived)+'٪';
+    perceivedPct.textContent=toFa(perceived)+'٪';
+    damagePct.textContent=toFa(damage)+'٪';
+    perceivedFill.style.width=perceived+'%';
+    damageFill.style.width=damage+'%';
+    if(perceived>70)roomSmell.classList.remove('dim');else roomSmell.classList.add('dim');
+    if(damage>40)roomRot.classList.add('show');else roomRot.classList.remove('show');
+
+    roomMsg.classList.remove('good','warn','danger');
+    if(days===0){roomMsg.classList.add('good');roomMsg.innerHTML='اتاق پر از بوی تعفن است و تو هم حسش می‌کنی. <b>اولین روز، همه چیز را می‌بینی.</b>';}
+    else if(days===1){roomMsg.innerHTML='کمی کمتر حسش می‌کنی. مغز دارد کم‌کم فیلترش می‌کند.';}
+    else if(days<=3){roomMsg.classList.add('warn');roomMsg.innerHTML='<b>روز '+toFa(days)+':</b> بینی‌ات دارد عادت می‌کند. بوی واقعی همان ۱۰۰٪ است، ولی خودآگاهت کمتر و کمتر می‌بیندش.';}
+    else if(days<=5){roomMsg.classList.add('warn');roomMsg.innerHTML='<b>روز '+toFa(days)+':</b> حالا این اتاق برایت «طبیعی» شده. بوی تعفن فیلتر شده، نه از بین رفته.';}
+    else{roomMsg.classList.add('danger');roomMsg.innerHTML='<b>روز '+toFa(days)+':</b> دیگر هیچ بویی حس نمی‌کنی. اما بدنت در همان اتاق بی‌اکسیژن در حال فرسایش است. <b>این همان عادت‌وارگی عصبی است.</b>';}
+  }
+  stayBtn.addEventListener('click',function(){
+    if(days>=8)return;
+    days++;
+    perceived=Math.max(4,Math.round(perceived*0.72));
+    damage=Math.min(100,days*13);
+    updateRoom();
+  });
+  leaveBtn.addEventListener('click',function(){
+    days=0;perceived=100;damage=0;
+    updateRoom();
+    roomMsg.classList.remove('good','warn','danger');
+    roomMsg.classList.add('good');
+    roomMsg.innerHTML='<b>از اتاق بیرون آمدی.</b> حالا دوباره بو را حس می‌کنی — اولین قدم برای خروج از خواب.';
+  });
+  updateRoom();
+}catch(e){}
+
+/* ========== پوشاندن تعفن ========== */
+try{
+  var addBtn=document.getElementById('addDistractionBtn');
+  var resetBtn=document.getElementById('resetRotBtn');
+  var rotRect=document.getElementById('rotRect');
+  var distLayers=document.getElementById('distractionLayers');
+  var rotPct=document.getElementById('rotPct');
+  var coverPct=document.getElementById('coverPct');
+  var rotFill=document.getElementById('rotFill');
+  var coverFill=document.getElementById('coverFill');
+  var rotMsg=document.getElementById('rotMsg');
+
+  var jarBottom=258, jarH=236;
+  var rot=Math.round(jarH*0.12), cover=0, clickCount=0;
+  var layerColors=['#a78bfa','#5eead4','#f5c26b','#fb7185','#60a5fa','#f472b6','#34d399'];
+
+  function renderRot(){
+    var rotRatio=rot/jarH, coverRatio=cover/jarH;
+    rotRect.setAttribute('y',jarBottom-rot);
+    rotRect.setAttribute('height',rot);
+
+    while(distLayers.firstChild)distLayers.removeChild(distLayers.firstChild);
+    var y=jarBottom-rot;
+    var layerCount=Math.min(clickCount,12);
+    if(layerCount>0){
+      var layerH=Math.min(cover/Math.max(layerCount,1),22);
+      for(var i=0;i<layerCount;i++){
+        var rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+        rect.setAttribute('x','32');rect.setAttribute('y',y);
+        rect.setAttribute('width','136');rect.setAttribute('height',layerH);
+        rect.setAttribute('fill',layerColors[i%layerColors.length]);
+        rect.setAttribute('opacity','.85');rect.setAttribute('rx','3');
+        distLayers.appendChild(rect);
+        y+=layerH;
+      }
+    }
+
+    rotPct.textContent=toFa(Math.round(rotRatio*100))+'٪';
+    coverPct.textContent=toFa(Math.round(coverRatio*100))+'٪';
+    rotFill.style.width=Math.round(rotRatio*100)+'%';
+    coverFill.style.width=Math.round(coverRatio*100)+'%';
+
+    rotMsg.classList.remove('good','warn','danger');
+    if(clickCount===0){rotMsg.innerHTML='هنوز لایه‌ای روی تعفن نگذاشتی. تعفن همان‌جاست، ولی لااقل <b>می‌بینی‌اش</b>.';}
+    else if(clickCount<=2){rotMsg.classList.add('warn');rotMsg.innerHTML='یک لایه جدید روی تعفن. ظاهر تمیزتر شد — اما تعفن هم <b>عمیق‌تر</b> شد.';}
+    else if(clickCount<=5){rotMsg.classList.add('warn');rotMsg.innerHTML='لایه‌ها روی هم تلنبار می‌شوند. هر سرگرمی جدید، یک لایه روی تعفن — و <b>عمق تعفن هم بیشتر</b>.';}
+    else{rotMsg.classList.add('danger');rotMsg.innerHTML='<b>پوشش دیگر جواب نمی‌دهد.</b> تعفن از لابه‌لای لایه‌ها بیرون می‌زند. باید تعفن را <b>پاک کرد</b>، نه پوشاند.';}
+  }
+  addBtn.addEventListener('click',function(){
+    clickCount++;
+    rot=Math.min(jarH*0.7,rot+Math.round(jarH*0.05));
+    cover=Math.min(jarH*0.6,cover+Math.round(jarH*0.09));
+    if(rot+cover>jarH-6){cover=jarH-6-rot;if(cover<0){cover=0;rot=jarH-6;}}
+    renderRot();
+  });
+  resetBtn.addEventListener('click',function(){
+    clickCount=0;rot=Math.round(jarH*0.12);cover=0;renderRot();
+  });
+  renderRot();
+}catch(e){}
+
+/* ========== دماسنج آگاهی ========== */
+try{
+  var thermoFill=document.getElementById('thermoFill');
+  var thermoBulb=document.getElementById('thermoBulb');
+  var thermoPct=document.getElementById('thermoPct');
+  var exerciseResult=document.getElementById('exerciseResult');
+  var breathBtn=document.getElementById('breathBtn');
+  var breathWrap=document.getElementById('breathWrap');
+  var breathCircle=document.getElementById('breathCircle');
+  var breathText=document.getElementById('breathText');
+  var habitChips=document.getElementById('habitChips');
+  var commitInput=document.getElementById('commitInput');
+  var commitStepBtn=document.getElementById('commitStepBtn');
+
+  var danger=100;
+  function setDanger(v){
+    danger=Math.max(0,Math.min(100,v));
+    var fillH=(danger/100)*225;
+    thermoFill.setAttribute('y',247-fillH);
+    thermoFill.setAttribute('height',fillH);
+    var r=Math.round(lerp(251,52,danger/100));
+    var g=Math.round(lerp(113,211,danger/100));
+    var b=Math.round(lerp(133,153,danger/100));
+    thermoBulb.setAttribute('fill','rgb('+r+','+g+','+b+')');
+    thermoPct.textContent=toFa(Math.round(danger))+'٪';
+    checkAllDone();
+  }
+  function lerp(a,b,t){return a+(b-a)*t;}
+  setDanger(100);
+
+  var step1Done=false,step2Done=false,step3Done=false;
+  function checkAllDone(){
+    if(step1Done&&step2Done&&step3Done)exerciseResult.classList.add('show');
+  }
+
+  var breathTimer=null;
+  breathBtn.addEventListener('click',function(){
+    if(breathTimer){
+      clearInterval(breathTimer);breathTimer=null;
+      breathWrap.style.display='none';
+      breathBtn.disabled=false;breathBtn.textContent='شروع سکوت';
+      return;
+    }
+    breathBtn.disabled=true;breathBtn.textContent='در حال سکوت…';
+    breathWrap.style.display='flex';
+    var remaining=10, phase='in';
+    breathCircle.classList.remove('inhale');
+    breathText.textContent=toFa(remaining);
+    breathTimer=setInterval(function(){
+      remaining--;
+      breathText.textContent=toFa(Math.max(remaining,0));
+      phase=(phase==='in')?'out':'in';
+      breathCircle.classList.toggle('inhale',phase==='in');
+      if(remaining<=0){
+        clearInterval(breathTimer);breathTimer=null;
+        breathWrap.style.display='none';
+        breathBtn.disabled=true;breathBtn.textContent='✓ انجام شد';
+        step1Done=true;
+        document.getElementById('step1').classList.add('done');
+        setDanger(danger-35);
+      }
+    },1000);
+  });
+
+  [].slice.call(habitChips.querySelectorAll('.chip')).forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(step2Done)return;
+      [].slice.call(habitChips.querySelectorAll('.chip')).forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      step2Done=true;
+      document.getElementById('step2').classList.add('done');
+      setDanger(danger-30);
+    });
+  });
+
+  commitInput.addEventListener('input',function(){
+    commitStepBtn.disabled=commitInput.value.trim().length<3||step3Done;
+  });
+  commitStepBtn.addEventListener('click',function(){
+    if(step3Done)return;
+    if(commitInput.value.trim().length<3)return;
+    step3Done=true;
+    commitInput.disabled=true;
+    commitStepBtn.disabled=true;commitStepBtn.textContent='✓ ثبت شد';
+    document.getElementById('step3').classList.add('done');
+    setDanger(danger-35);
+  });
+}catch(e){}
+
+/* ========== چک‌لیست ========== */
+try{
+  var checkInputs=[].slice.call(document.querySelectorAll('#checkList input[type=checkbox]'));
+  var checkProgress=document.getElementById('checkProgress');
+  function updateChecks(){
+    var c=checkInputs.filter(function(x){return x.checked;}).length;
+    checkProgress.innerHTML='<b>'+toFa(c)+'</b> از ۳ قدم انجام شده';
+  }
+  checkInputs.forEach(function(x){x.addEventListener('change',updateChecks);});
+  updateChecks();
+}catch(e){}
+
+})();
+</script>
+</body>
+</html>
